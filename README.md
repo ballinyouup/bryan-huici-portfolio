@@ -11,8 +11,3 @@
 * TS-Reset - Typescript Reset Package
 * Framer-Motion - Animation Library
 * React-Hook-Form/Zod - Input/Form Validation
-
-To Be Added Later:
-Drizzle - ORM for DB
-NextAuth - Authentication
-T3-ENV - Typesafe Environment Variables
