@@ -1,24 +1,13 @@
 steps:
-  # Access GitHub PAT from Secret Manager
-  - name: gcr.io/cloud-builders/gcloud
-    entrypoint: 'bash'
-    args: ['-c', 'gcloud secrets versions access latest --secret=github-token > /workspace/github-token']
-    volumes:
-      - name: 'vol1'
-        path: '/workspace'
-
   # Fetches the source code
   - name: 'gcr.io/cloud-builders/git'
     entrypoint: 'bash'
     args:
       - '-c'
       - |
-        git config --global credential.helper 'store --file=/tmp/git-credentials'
-        echo "https://$(cat /workspace/github-token):x-oauth-basic@github.com" > /tmp/git-credentials
+        git config --global credential.helper 'store --file=/root/.git-credentials'
+        echo "https://$(gcloud secrets versions access latest --secret=github-token):x-oauth-basic@github.com" > /root/.git-credentials
         git clone https://github.com/ballinyouup/bryan-huici-portfolio.git
-    volumes:
-      - name: 'vol1'
-        path: '/workspace'
 
   # Configure Docker to use Artifact Registry
   - name: 'gcr.io/cloud-builders/gcloud'
