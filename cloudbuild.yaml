@@ -1,15 +1,41 @@
 steps:
+  # Access GitHub PAT from Secret Manager
+  - name: gcr.io/cloud-builders/gcloud
+    entrypoint: 'bash'
+    args: ['-c', 'gcloud secrets versions access latest --secret=github-token > /workspace/github-token']
+    volumes:
+      - name: 'vol1'
+        path: '/workspace'
+
   # Fetches the source code
   - name: 'gcr.io/cloud-builders/git'
-    args: ['clone', 'https://github.com/ballinyouup/bryan-huici-portfolio.git']
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        git config --global credential.helper 'store --file=/tmp/git-credentials'
+        echo "https://$(cat /workspace/github-token):x-oauth-basic@github.com" > /tmp/git-credentials
+        git clone https://github.com/ballinyouup/bryan-huici-portfolio.git
+    volumes:
+      - name: 'vol1'
+        path: '/workspace'
+
+  # Configure Docker to use Artifact Registry
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['components', 'install', 'docker-credential-gcr']
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['auth', 'configure-docker', '${_REGION}-docker.pkg.dev']
 
   # Builds the Docker image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/bryan-huici-portfolio:latest', '.']
+    args: ['build', '-t', '${_REGION}-docker.pkg.dev/$PROJECT_ID/bryan-huici-portfolio/bryan-huici-portfolio:latest', '.']
+    dir: '/workspace/bryan-huici-portfolio'
 
-  # Pushes the Docker image to Google Container Registry
+  # Pushes the Docker image to Google Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/bryan-huici-portfolio:latest']
+    args: ['push', '${_REGION}-docker.pkg.dev/$PROJECT_ID/bryan-huici-portfolio/bryan-huici-portfolio:latest']
+    dir: '/workspace/bryan-huici-portfolio'
 
 substitutions:
   _BRANCH_NAME: master
+  _REGION: us-central1  # Change this to your preferred Google Cloud region
