@@ -1,16 +1,15 @@
 steps:
-    # Fetches the source code
-    - name: 'gcr.io/cloud-builders/git'
-      args: ['clone', 'https://github.com/ballinyouup/bryan-huici-portfolio.git']
-      
-    # Builds the Docker image
-    - name: 'gcr.io/cloud-builders/docker'
-      args: ['build', '-t', 'gcr.io/$PROJECT_ID/bryan-huici-portfolio:latest', '.']
-      
-    # Pushes the Docker image to Google Container Registry
-    - name: 'gcr.io/cloud-builders/docker'
-      args: ['push', 'gcr.io/$PROJECT_ID/bryan-huici-portfolio:latest']
-  
-  substitutions:
-    _BRANCH_NAME: master
-  
+  # Fetches the source code
+  - name: 'gcr.io/cloud-builders/git'
+    args: ['clone', 'https://github.com/ballinyouup/bryan-huici-portfolio.git']
+
+  # Builds the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/bryan-huici-portfolio:latest', '.']
+
+  # Pushes the Docker image to Google Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/bryan-huici-portfolio:latest']
+
+substitutions:
+  _BRANCH_NAME: master
