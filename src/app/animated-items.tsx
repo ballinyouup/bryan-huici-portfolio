@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion'
 const AnimatedItems = () => {
     return (
-        <div>
+        <>
             <motion.div
                 animate={{
                     width: ['0%', '110%'],
@@ -11,7 +11,7 @@ const AnimatedItems = () => {
                     duration: 3,
                     ease: 'linear',
                 }}
-                className="absolute -left-10 top-0 z-10 h-20 rounded-full bg-primary"
+                className="absolute -left-10 top-[0%] z-10 h-1/5 bg-primary"
             />
             <motion.div
                 animate={{
@@ -22,7 +22,7 @@ const AnimatedItems = () => {
                     delay: 0.25,
                     ease: 'linear',
                 }}
-                className="absolute -left-10 top-20 z-10 h-20 rounded-full bg-primary"
+                className="absolute -left-10 top-[20%] z-10 h-1/5 bg-primary"
             />
             <motion.div
                 animate={{
@@ -33,7 +33,7 @@ const AnimatedItems = () => {
                     delay: 0.5,
                     ease: 'linear',
                 }}
-                className="absolute -left-10 top-40 z-10 h-20 rounded-full bg-primary"
+                className="absolute -left-10 top-[40%] z-10 h-1/5 bg-primary"
             />
             <motion.div
                 animate={{
@@ -44,7 +44,7 @@ const AnimatedItems = () => {
                     delay: 0.75,
                     ease: 'linear',
                 }}
-                className="absolute -left-10 top-60 z-10 h-20 rounded-full bg-primary"
+                className="absolute -left-10 top-[60%] z-10 h-1/5 bg-primary"
             />
             <motion.div
                 animate={{
@@ -55,40 +55,7 @@ const AnimatedItems = () => {
                     delay: 1,
                     ease: 'linear',
                 }}
-                className="absolute -left-10 top-80 z-10 h-20 rounded-full bg-primary"
-            />
-            <motion.div
-                animate={{
-                    width: ['0%', '110%'],
-                }}
-                transition={{
-                    duration: 3,
-                    delay: 1.25,
-                    ease: 'linear',
-                }}
-                className="absolute -left-10 top-[400px] z-10 h-20 rounded-full bg-primary"
-            />
-            <motion.div
-                animate={{
-                    width: ['0%', '110%'],
-                }}
-                transition={{
-                    duration: 3,
-                    delay: 1.5,
-                    ease: 'linear',
-                }}
-                className="absolute -left-10 top-[480px] z-10 h-20 rounded-full bg-primary"
-            />
-            <motion.div
-                animate={{
-                    width: ['0%', '110%'],
-                }}
-                transition={{
-                    duration: 3,
-                    delay: 1.75,
-                    ease: 'linear',
-                }}
-                className="absolute -left-10 top-[560px] z-10 h-20 rounded-full bg-primary"
+                className="absolute -left-10 top-[80%] z-10 h-1/5 bg-primary"
             />
             <motion.span
                 animate={{
@@ -105,7 +72,17 @@ const AnimatedItems = () => {
                 <br />
                 Full stack
             </motion.span>
-        </div>
+            <motion.div
+                animate={{
+                    left: ['0%', '100%'],
+                }}
+                transition={{
+                    delay: 2,
+                    duration: 3,
+                }}
+                className="absolute z-20 h-40 w-40 bg-accent"
+            />
+        </>
     )
 }
 
