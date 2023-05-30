@@ -1,14 +1,18 @@
 version: '3'
 services:
   app:
-    build: .
+    image: us-central1-docker.pkg.dev/bryanhuici/bryan-huici-portfolio/bryan-huici-portfolio:latest
     volumes:
       - .:/bryan-huici-portfolio
+      - /bryan-huici-portfolio/node_modules
     environment:
       - NODE_ENV=production
+      - RESTART=true
     command: npm run start
     expose:
       - 3001
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
     restart: always
 
   nginx:
@@ -28,4 +32,12 @@ services:
     volumes:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew --quiet; sleep 12h & wait $${!}; done;'"
+
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - $HOME/.docker/config.json:/config.json
+    command: --cleanup --debug --label-enable --interval 30 --include-restarting
+    restart: always
