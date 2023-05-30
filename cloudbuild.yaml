@@ -16,14 +16,17 @@ steps:
     args: ['auth', 'configure-docker', '${_REGION}-docker.pkg.dev']
 
   # Builds the Docker image
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'docker'
     args: ['build', '-t', '${_REGION}-docker.pkg.dev/projects-388322/portfolio/bryan-huici-portfolio:latest', '.']
     dir: '/workspace/bryan-huici-portfolio'
 
   # Pushes the Docker image to Google Artifact Registry
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'docker'
     args: ['push', '${_REGION}-docker.pkg.dev/projects-388322/portfolio/bryan-huici-portfolio:latest']
     dir: '/workspace/bryan-huici-portfolio'
+
 
 substitutions:
   _BRANCH_NAME: master
