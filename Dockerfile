@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Make port 3000 available to the outside world
-EXPOSE 3000
+EXPOSE 3001
 
 # Start the application
 CMD ["npm", "start"]
