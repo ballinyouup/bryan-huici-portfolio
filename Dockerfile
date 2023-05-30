@@ -16,7 +16,7 @@ COPY . .
 # Build the application
 RUN npm run build
 
-# Make port 3000 available to the outside world
+# Make port 3001 available to the outside world
 EXPOSE 3001
 
 # Start the application
