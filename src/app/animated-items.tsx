@@ -57,7 +57,7 @@ const AnimatedItems = () => {
                 }}
                 className="absolute -left-10 top-[80%] z-10 h-1/5 bg-primary"
             />
-            <motion.span
+            <motion.div
                 animate={{
                     opacity: [0, 1],
                     left: ['0%', '25%'],
@@ -66,12 +66,11 @@ const AnimatedItems = () => {
                     delay: 2,
                     duration: 2,
                 }}
-                className="absolute left-1/4 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2 text-7xl font-bold uppercase text-primary-foreground"
+                className="absolute top-1/2 z-30 flex -translate-x-1/4 -translate-y-1/2 flex-col text-7xl font-bold uppercase text-primary-foreground md:left-1/4 md:w-fit md:-translate-x-1/2"
             >
-                Front-end
-                <br />
-                Full stack
-            </motion.span>
+                <span>Front-end</span>
+                <span>Full stack</span>
+            </motion.div>
             <motion.div
                 animate={{
                     left: ['0%', '100%'],
