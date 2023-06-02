@@ -12,9 +12,8 @@ export function ThemeToggle({ ...props }: ButtonProps) {
     return (
         <Button
             {...props}
-            variant={'ghost'}
             onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-            className="p-1.5"
+            className="w-fit p-1.5"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
