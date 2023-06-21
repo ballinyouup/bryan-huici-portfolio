@@ -3,7 +3,6 @@
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from './sheet'
 import Link from 'next/link'
 import { FolderGit2, Home, Menu, ScrollText } from 'lucide-react'
-import { ThemeToggle } from './theme-toggle'
 import { useState } from 'react'
 
 const MobileMenu = () => {
@@ -42,7 +41,6 @@ const MobileMenu = () => {
                     <ScrollText className="h-6 w-6" />
                     <span>Resumé</span>
                 </Link>
-                <ThemeToggle variant={'default'} />
             </SheetContent>
         </Sheet>
     )

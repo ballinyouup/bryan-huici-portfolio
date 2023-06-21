@@ -1,6 +1,5 @@
 import './globals.css'
 import Navbar from '@/components/ui/navbar'
-import { ThemeProvider } from '@/providers/theme-provider'
 import localFont from 'next/font/local'
 
 const Futura = localFont({
@@ -18,16 +17,10 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <body className={Futura.className}>
-                <ThemeProvider
-                    attribute="class"
-                    enableSystem
-                    defaultTheme="system"
-                >
                     <Navbar />
                     {children}
-                </ThemeProvider>
             </body>
         </html>
     )
