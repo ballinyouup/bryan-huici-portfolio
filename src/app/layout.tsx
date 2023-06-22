@@ -1,3 +1,4 @@
+import Footer from '@/components/ui/footer';
 import './globals.css'
 import Navbar from '@/components/ui/navbar'
 import localFont from 'next/font/local'
@@ -18,9 +19,10 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={Futura.className}>
-                    <Navbar />
-                    {children}
+            <body className={`${Futura.className} flex min-h-screen flex-col`}>
+                <Navbar />
+                <main className="flex-grow">{children}</main>
+                <Footer />
             </body>
         </html>
     )
