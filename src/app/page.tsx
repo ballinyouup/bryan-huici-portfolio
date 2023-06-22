@@ -3,7 +3,7 @@ export default function Page() {
         <>
             <div className="flex h-screen items-center justify-center">
                 <div className="flex flex-col items-start justify-start gap-4 p-6 md:justify-center md:p-0">
-                    <h3 className="grid w-full grid-flow-row text-8xl font-semibold md:grid-flow-col">
+                    <h3 className="-ml-1 grid w-full grid-flow-row text-8xl font-semibold md:grid-flow-col">
                         <span>BRYAN</span>
                         <span className="hidden text-5xl md:flex">&nbsp;</span>
                         <span>HUICI</span>
