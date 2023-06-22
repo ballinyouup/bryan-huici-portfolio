@@ -5,11 +5,9 @@ export default function DownArrow() {
     return (
         <div>
             <motion.div
-                initial={{
-                    x: '-20px',
-                }}
                 animate={{
                     y: [0, -10, 0],
+                    x: ['-20px'],
                 }}
                 transition={{
                     duration: 3,
