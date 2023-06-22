@@ -18,7 +18,7 @@ export default function Hero() {
                 </p>
             </div>
             <div className="absolute top-1/2 z-10 flex h-full w-full -translate-y-1/4 flex-col items-start justify-start gap-4 blur-xl md:-translate-y-1/2 md:justify-center">
-                <div className="h-1/2 w-full rounded-full bg-accent !blur-[128px] !brightness-200" />
+                <div className="h-1/2 w-full rounded-full bg-accent !blur-[96px] !brightness-200" />
             </div>
             <DownArrow />
         </div>
