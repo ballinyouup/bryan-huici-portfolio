@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Button } from './button'
 import { Github, Linkedin } from 'lucide-react'
 export default function Footer() {
+    //TODO: Turn footer nav buttons into NavButtons
     return (
         <footer className="flex min-h-fit w-full items-center justify-center p-6">
             <footer className="grid h-full w-full max-w-5xl grid-flow-row grid-cols-1 gap-8 p-10 text-primary-foreground sm:grid-cols-2 lg:grid-flow-col lg:grid-cols-2 lg:place-content-between lg:gap-0">
