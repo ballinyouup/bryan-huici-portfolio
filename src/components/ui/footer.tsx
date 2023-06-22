@@ -19,7 +19,7 @@ export default function Footer() {
                     <span className="text-2xl font-bold">Social</span>
                     <div className="grid w-32 grid-flow-row gap-2 md:grid-flow-col">
                         <Button
-                            variant={'default'}
+                            variant={'secondary'}
                             className="flex w-full items-center justify-start"
                         >
                             <Link
@@ -41,7 +41,7 @@ export default function Footer() {
                             </Link>
                         </Button>
                         <Button
-                            variant={'default'}
+                            variant={'secondary'}
                             className="flex w-full items-center justify-start"
                         >
                             <Link
@@ -55,7 +55,7 @@ export default function Footer() {
                             </Link>
                         </Button>
                         <Button
-                            variant={'default'}
+                            variant={'secondary'}
                             className="flex w-full items-center justify-start"
                         >
                             <Link
