@@ -1,16 +1,14 @@
-import Footer from '@/components/ui/footer';
+import Footer from '@/components/ui/footer'
 import './globals.css'
 import Navbar from '@/components/ui/navbar'
-import localFont from 'next/font/local'
+import { Inter } from 'next/font/google'
 
-const Futura = localFont({
-    src: '../assets/FuturaBookFont.ttf',
-    display: 'swap',
-})
 export const metadata = {
     title: 'Bryan Huici',
     description: 'Bryan Huici Portfolio',
 }
+
+const inter = Inter({ subsets: ['latin'] })
 
 export default function RootLayout({
     children,
@@ -19,7 +17,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={`${Futura.className} flex min-h-screen flex-col`}>
+            <body className={`${inter.className} flex min-h-screen flex-col`}>
                 <Navbar />
                 <main className="flex-grow">{children}</main>
                 <Footer />
