@@ -2,7 +2,7 @@ import DownArrow from './down-arrow'
 
 export default function Hero() {
     return (
-        <div className="relative flex h-screen min-h-[640px] flex-col items-center justify-center overflow-hidden">
+        <div className="relative flex h-screen flex-col items-center justify-center overflow-hidden">
             <div className="z-20 flex flex-col items-start justify-start gap-4 p-4 sm:p-6 md:justify-center md:p-4">
                 <h3 className="-ml-1 grid w-full grid-flow-row text-8xl font-semibold md:grid-flow-col">
                     <span>BRYAN</span>
