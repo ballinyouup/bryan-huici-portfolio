@@ -5,7 +5,7 @@ import MobileMenu from './mobile-menu'
 
 export default function Navbar() {
     return (
-        <nav className="z-30 flex w-full place-content-between bg-background p-4 shadow shadow-black">
+        <nav className="absolute z-30 flex w-full place-content-between bg-background p-4 shadow shadow-black">
             <NavButton href="/" name="B" title>
                 <Dribbble className="h-5 w-5" />
             </NavButton>
