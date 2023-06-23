@@ -17,7 +17,7 @@ export default function Hero() {
                     <span>Software Engineer</span>
                 </p>
             </div>
-            <div className="absolute -left-1/4 top-1/2 z-10 flex h-full w-full -translate-y-1/2 translate-x-1/4 flex-col items-start justify-center gap-4 blur-xl">
+            <div className="absolute -left-1/4 top-1/2 z-10 flex h-full w-full -translate-y-1/2 translate-x-1/4 flex-col items-start justify-center gap-4">
                 <div className="h-full w-full rounded-full bg-accent !blur-[96px] !brightness-200 sm:!blur-[128px] sm:!brightness-125" />
             </div>
             <DownArrow />
