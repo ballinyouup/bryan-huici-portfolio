@@ -27,6 +27,7 @@ const Technologies = () => {
         {
             src: '/nextjs.svg',
             alt: 'NextJS',
+            invert: true,
         },
         {
             src: '/react.svg',
@@ -67,17 +68,19 @@ const Technologies = () => {
         {
             src: '/cicd.svg',
             alt: 'CI/CD',
+            invert: true,
         },
         {
-            src: '/artifacts.svg',
+            src: '/artifact.svg',
             alt: 'Artifact Registry',
         },
         {
-            src: '/actions.png',
-            alt: 'Github Actions',
+            src: '/actions.svg',
+            alt: 'GH Actions',
+            invert: true,
         },
         {
-            src: '/nextauth.svg',
+            src: '/nextauth.png',
             alt: 'NextAuth',
         },
         {
@@ -87,24 +90,46 @@ const Technologies = () => {
         {
             src: '/prisma.svg',
             alt: 'Prisma',
+            invert: true,
         },
     ]
     return (
-        <div className="relative z-20 flex h-phone w-full items-start justify-center sm:h-desktop">
+        <div className="relative z-20 flex h-full min-h-phone w-full items-start justify-center pb-40 sm:h-desktop sm:pb-0">
             <div className="flex w-fit flex-col items-center justify-center gap-4 text-center">
                 <h3 className="text-[10vw] md:text-6xl">TECHNOLOGIES</h3>
                 <div className="flex w-full max-w-3xl flex-wrap items-center justify-center gap-3 p-8">
                     <TooltipProvider>
-                        {tech.map((item) => (
+                        {tech.map((item, index) => (
                             <Tooltip delayDuration={0} key={item.src}>
-                                <div className="z-20 h-[76px] w-[76px] overflow-hidden rounded-lg bg-white transition-all duration-200 hover:z-10 hover:-translate-y-2 hover:scale-105 hover:shadow-xl hover:shadow-slate-700">
-                                    <TooltipTrigger>
-                                        <Image
-                                            src={item.src}
-                                            alt={item.alt}
-                                            height={76}
-                                            width={76}
-                                        />
+                                <div className="z-20 h-24 w-24 overflow-hidden rounded-2xl border-4 border-transparent transition-transform hover:z-10 hover:-translate-y-2 hover:scale-105 hover:border-teal-400 hover:shadow-xl hover:shadow-slate-700">
+                                    <TooltipTrigger className="flex h-full w-full items-center justify-center">
+                                        {index === 17 ? (
+                                            <Image
+                                                src={item.src}
+                                                alt={item.alt}
+                                                height={88}
+                                                width={88}
+                                                className="p-1"
+                                            />
+                                        ) : index === 6 ? (
+                                            <Image
+                                                src={item.src}
+                                                alt={item.alt}
+                                                height={94}
+                                                width={94}
+                                                className="p-1"
+                                            />
+                                        ) : (
+                                            <Image
+                                                src={item.src}
+                                                alt={item.alt}
+                                                height={96}
+                                                width={96}
+                                                className={
+                                                    item.invert ? 'invert' : ''
+                                                }
+                                            />
+                                        )}
                                     </TooltipTrigger>
                                     <TooltipContent>
                                         <p>{item.alt}</p>
