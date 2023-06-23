@@ -70,7 +70,7 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       height: {
-        'desktop': '56rem',
+        'desktop': '60rem',
       }
     },
   },
