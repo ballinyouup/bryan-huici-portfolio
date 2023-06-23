@@ -71,6 +71,7 @@ module.exports = {
       },
       height: {
         'desktop': '60rem',
+        'phone': '44rem',
       }
     },
   },
