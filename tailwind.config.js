@@ -73,6 +73,9 @@ module.exports = {
       height: {
         'desktop': '60rem',
         'phone': '44rem',
+      },
+      minHeight: {
+        'phone': '44rem',
       }
     },
   },
