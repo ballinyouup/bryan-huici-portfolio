@@ -16,7 +16,7 @@ export default function DownArrow() {
                 className="absolute bottom-20 left-1/2 z-10"
             >
                 <ChevronDown
-                    className="h-10 w-10 -translate-x-1 rounded-full"
+                    className="h-10 w-10 -translate-x-6 rounded-full"
                     strokeWidth={'4px'}
                 />
             </motion.div>
