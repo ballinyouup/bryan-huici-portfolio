@@ -3,8 +3,8 @@ import DownArrow from './down-arrow'
 export default function Hero() {
     return (
         <div className="relative flex h-phone flex-col items-center justify-center overflow-x-clip md:h-desktop">
-            <div className="z-30 flex h-full flex-col items-start justify-center gap-4 p-4 sm:p-6 md:p-4">
-                <h3 className="-ml-1 grid w-full grid-flow-row text-8xl font-semibold md:grid-flow-col">
+            <div className="z-30 flex h-full flex-col justify-center gap-4 p-8 items-start sm:p-6 md:p-4">
+                <h3 className="-ml-1 grid w-full grid-flow-row text-[20vw] font-semibold sm:text-8xl md:grid-flow-col">
                     <span>BRYAN</span>
                     <span className="hidden text-5xl md:flex">&nbsp;</span>
                     <span>HUICI</span>
