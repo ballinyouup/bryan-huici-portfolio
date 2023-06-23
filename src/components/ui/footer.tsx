@@ -4,7 +4,7 @@ import { Github, Linkedin, MailIcon } from 'lucide-react'
 export default function Footer() {
     //TODO: Turn footer nav buttons into NavButtons
     return (
-        <footer className="flex min-h-fit w-full items-center justify-center">
+        <footer className="flex h-fit w-full items-center justify-center">
             <footer className="grid h-full w-full max-w-5xl grid-flow-row grid-cols-1 gap-8 p-8 text-primary-foreground sm:grid-cols-2 lg:grid-flow-col lg:grid-cols-2 lg:place-content-between lg:gap-0">
                 <div className="col-span-1">
                     <span className="text-4xl font-bold">BRYAN HUICI</span>
@@ -89,9 +89,7 @@ export default function Footer() {
                                     href="https://www.twitter.com/ballin_codes"
                                     className="flex items-start justify-start gap-2"
                                 >
-                                    <MailIcon
-                                        className="h-6 w-6"
-                                    />
+                                    <MailIcon className="h-6 w-6" />
                                     <span className="text-lg font-bold">
                                         Email
                                     </span>
