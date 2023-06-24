@@ -6,6 +6,8 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from './tooltip'
+
+import { Popover, PopoverContent, PopoverTrigger } from './popover'
 const Technologies = () => {
     const tech = [
         {
@@ -93,11 +95,13 @@ const Technologies = () => {
             invert: true,
         },
     ]
+    //If I need to manipulate the image, div above tooltiptrigger
+    //[&>:first-child]:hover:!grayscale-0
     return (
         <div className="relative z-20 flex h-full min-h-phone w-full items-start justify-center pb-40 sm:h-desktop sm:pb-0">
             <div className="flex w-fit flex-col items-center justify-center gap-4 text-center">
                 <h3 className="text-[10vw] md:text-6xl">TECHNOLOGIES</h3>
-                <div className="flex w-full max-w-3xl flex-wrap items-center justify-center gap-3 p-8">
+                <div className="hidden w-full max-w-3xl flex-wrap items-center justify-center gap-3 p-8 sm:flex">
                     <TooltipProvider>
                         {tech.map((item, index) => (
                             <Tooltip delayDuration={0} key={item.src}>
@@ -138,6 +142,47 @@ const Technologies = () => {
                             </Tooltip>
                         ))}
                     </TooltipProvider>
+                </div>
+                {/** MOBILE TECH */}
+                <div className="flex w-full max-w-3xl flex-wrap items-center justify-center gap-3 p-8 sm:hidden">
+                    {tech.map((item, index) => (
+                        <Popover key={item.src}>
+                            <div className="z-20 h-24 w-24 overflow-hidden rounded-2xl">
+                                <PopoverTrigger className="flex h-full w-full items-center justify-center">
+                                    {index === 17 ? (
+                                        <Image
+                                            src={item.src}
+                                            alt={item.alt}
+                                            height={88}
+                                            width={88}
+                                            className="p-1"
+                                        />
+                                    ) : index === 6 ? (
+                                        <Image
+                                            src={item.src}
+                                            alt={item.alt}
+                                            height={94}
+                                            width={94}
+                                            className="p-1"
+                                        />
+                                    ) : (
+                                        <Image
+                                            src={item.src}
+                                            alt={item.alt}
+                                            height={96}
+                                            width={96}
+                                            className={
+                                                item.invert ? 'invert' : ''
+                                            }
+                                        />
+                                    )}
+                                </PopoverTrigger>
+                                <PopoverContent>
+                                    <p>{item.alt}</p>
+                                </PopoverContent>
+                            </div>
+                        </Popover>
+                    ))}
                 </div>
             </div>
             <DownArrow />
