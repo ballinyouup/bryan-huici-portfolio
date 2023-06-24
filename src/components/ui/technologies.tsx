@@ -106,7 +106,7 @@ const Technologies = () => {
                         {tech.map((item, index) => (
                             <Tooltip delayDuration={0} key={item.src}>
                                 <div className="z-20 h-24 w-24 overflow-hidden rounded-2xl border-4 border-transparent transition-transform hover:z-10 hover:-translate-y-2 hover:scale-105 hover:border-teal-400 hover:shadow-xl hover:shadow-slate-700">
-                                    <TooltipTrigger className="flex h-full w-full items-center justify-center">
+                                    <TooltipTrigger className="flex h-full w-full cursor-default items-center justify-center">
                                         {index === 17 ? (
                                             <Image
                                                 src={item.src}
