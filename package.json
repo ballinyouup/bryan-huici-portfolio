@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "resolve": "npx npm-force-resolutions",
     "dev": "next dev",
-    "build": "next build && npm run resolve",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "playwright": "playwright test"
