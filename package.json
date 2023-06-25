@@ -5,7 +5,7 @@
   "scripts": {
     "resolve": "npx npm-force-resolutions",
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && npm run resolve",
     "start": "next start",
     "lint": "next lint",
     "playwright": "playwright test"
