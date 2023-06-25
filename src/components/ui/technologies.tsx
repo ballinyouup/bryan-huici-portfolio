@@ -90,6 +90,10 @@ const Technologies = () => {
             alt: 'React Query',
         },
         {
+            src: '/trpc.svg',
+            alt: 'tRPC',
+        },
+        {
             src: '/prisma.svg',
             alt: 'Prisma',
             invert: true,

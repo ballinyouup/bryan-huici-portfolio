@@ -8,10 +8,10 @@ export default function Footer() {
             <footer className="grid h-full w-full max-w-5xl grid-flow-row grid-cols-1 gap-8 p-8 text-primary-foreground sm:grid-cols-2 lg:grid-flow-col lg:grid-cols-2 lg:place-content-between lg:gap-0">
                 <div className="col-span-1">
                     <span className="text-4xl font-bold">BRYAN HUICI</span>
-                    <p className="text-lg font-normal">
+                    <p className="text-lg">
                         Front-End/Full-Stack Software Engineer
                     </p>
-                    <p className="text-lg font-normal">
+                    <p className="text-sm">
                         © 2023 Bryan Huici All Right&apos;s Reserved
                     </p>
                 </div>
