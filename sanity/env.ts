@@ -1,4 +1,4 @@
-import {env} from "../src/env.mjs"
+const { env } = require('../src/env')
 
 export const apiVersion = env.NEXT_PUBLIC_SANITY_API_VERSION
 
