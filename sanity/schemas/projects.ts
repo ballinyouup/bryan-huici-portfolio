@@ -50,6 +50,11 @@ export default defineType({
             title: 'Body',
             type: 'blockContent',
         }),
+        defineField({
+            name: 'summary',
+            title: 'Summary',
+            type: 'blockContent',
+        }),
     ],
 
     preview: {
