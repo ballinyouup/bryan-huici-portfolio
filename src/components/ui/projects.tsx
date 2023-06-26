@@ -1,7 +1,10 @@
+'use client'
 import Image from 'next/image'
 import { client } from '../../../sanity/lib/client.mts'
 import { urlForImage } from '../../../sanity/lib/image'
 import type { Image as SanityImage } from 'sanity'
+import { PortableText } from '@portabletext/react'
+import { portableComponents } from '../../../sanity/lib/portableComponents'
 interface Projects {
     title?: string
     image?: SanityImage
@@ -9,6 +12,7 @@ interface Projects {
     slug?: string
     body?: string
     alt?: string
+    summary?: any
 }
 
 function wait(ms: number) {
@@ -16,9 +20,9 @@ function wait(ms: number) {
 }
 
 export default async function Projects() {
-    await wait(5000)
+    // await wait(5000)
     const projects: Projects[] = await client.fetch(`*[_type == "projects"]{
-		"author": author->name, "slug": slug.current, "body": body[0].children[0].text, title, "image": mainImage, "alt": mainImage.alt
+		"author": author->name, "slug": slug.current, summary, title, "image": mainImage, "alt": mainImage.alt
 	  }`)
     return (
         <div className="flex h-desktop w-full flex-col items-center gap-8  p-12">
@@ -52,9 +56,11 @@ export default async function Projects() {
                                 <span className="text-xl">
                                     By: {project.author}
                                 </span>
-                                <div className="text-ellipsis text-xl">
-                                    <span>{project.body}</span>
-                                </div>
+                                <PortableText
+                                    value={project.summary}
+                                    components={portableComponents}
+                                    onMissingComponent={false}
+                                />
                             </div>
                         </div>
                     )
