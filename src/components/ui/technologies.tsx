@@ -127,6 +127,14 @@ const Technologies = () => {
                                                 width={94}
                                                 className="p-1"
                                             />
+                                        ) : index === 19 ? (
+                                            <Image
+                                                src={item.src}
+                                                alt={item.alt}
+                                                height={94}
+                                                width={94}
+                                                className="p-2"
+                                            />
                                         ) : (
                                             <Image
                                                 src={item.src}
