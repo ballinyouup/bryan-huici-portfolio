@@ -21,13 +21,13 @@ export default async function Projects() {
 		"author": author->name, "slug": slug.current, "body": body[0].children[0].text, title, "image": mainImage, "alt": mainImage.alt
 	  }`)
     return (
-        <div className="flex h-desktop w-full flex-col items-center gap-8 bg-gray-900 p-12">
+        <div className="flex h-desktop w-full flex-col items-center gap-8  p-12">
             <span className="text-6xl font-bold">PROJECTS</span>
             <div className="flex h-full w-full flex-col items-center p-5 text-white">
                 {projects.map((project) => {
                     return (
                         <div
-                            className="flex h-fit w-full max-w-5xl gap-4 border border-white bg-accent p-4"
+                            className="flex h-fit w-full max-w-5xl flex-col items-center justify-center gap-4 p-4 sm:flex-row sm:items-start sm:justify-start"
                             key={project.slug}
                         >
                             {project.image ? (
@@ -35,13 +35,17 @@ export default async function Projects() {
                                     src={urlForImage(project.image)
                                         .width(320)
                                         .height(320)
+                                        .minHeight(320)
+                                        .minWidth(320)
+                                        .fit('min')
+                                        .auto('format')
                                         .url()}
                                     alt={project.image.alt as string}
                                     width={320}
                                     height={320}
                                 />
                             ) : null}
-                            <div className="flex w-full flex-col">
+                            <div className="flex w-full flex-col items-start">
                                 <h4 className="font-bold uppercase">
                                     {project.title}
                                 </h4>
