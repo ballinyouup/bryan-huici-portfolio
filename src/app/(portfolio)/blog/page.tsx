@@ -7,14 +7,14 @@ interface Post {
     slug: {
         current: string
     }
-    body: []
+    description: string
     title: string
 }
 
 export default async function Page() {
     const posts = await client.fetch(`*[_type == "post"]{
 		"author": author->name,
-		  body, title, slug
+		  description, title, slug
 	  }`)
 
     return (
@@ -24,20 +24,13 @@ export default async function Page() {
                     <Link
                         href={`/blog/${post.slug.current}`}
                         key={post.slug.current}
+                        className="flex w-full max-w-5xl flex-col text-ellipsis border border-transparent bg-accent p-2 hover:border-white"
                     >
-                        <div
-                            className={`flex w-full max-w-5xl flex-col text-ellipsis border border-white bg-accent p-2 transition-transform hover:scale-[98%]`}
-                            key={post.slug.current}
-                        >
-                            <div>
-                                <h3 className="font-bold">{post.title}</h3>
-                                <p className="text-lg">By: {post.author}</p>
-                            </div>
-
-                            <div className="line-clamp-3 h-full">
-                                <PlainTextComponent value={post.body} />
-                            </div>
+                        <div>
+                            <h5 className="font-bold">{post.title}</h5>
+                            <p className="text-lg">By: {post.author}</p>
                         </div>
+                        <p className='line-clamp-3'>{post.description}</p>
                     </Link>
                 )
             })}
