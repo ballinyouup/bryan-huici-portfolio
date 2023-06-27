@@ -6,6 +6,7 @@ import { Inter } from 'next/font/google'
 export const metadata = {
     title: 'Bryan Huici',
     description: 'Bryan Huici Portfolio',
+    metadataBase: new URL(process.env.NODE_ENV === "development" ? "http://localhost:3000" : 'https://www.bryanhuici.com'),
 }
 
 const inter = Inter({ subsets: ['latin'] })
