@@ -19,17 +19,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
     return new ImageResponse(
         (
             // ImageResponse JSX element
-            <div
-                style={{
-                    fontSize: 128,
-                    background: 'black',
-                    width: '100%',
-                    height: '100%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                }}
-                className={`${inter.className} font-bold text-white`}
+            <div className={`${inter.className} font-bold text-white text-3xl flex items-center justify-center w-full h-full bg-black`}
             >
                 {params.slug}
             </div>
@@ -39,6 +29,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
             // For convenience, we can re-use the exported opengraph-image
             // size config to also set the ImageResponse's width and height.
             ...size,
+            
         }
     )
 }
