@@ -10,14 +10,13 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // fetch data
     const post =
-        await client.fetch(`*[slug.current == "${params.slug}" && defined(author->name)]{
-		"author": author->name,
-		  body, title
+        await client.fetch(`*[slug.current == "${params.slug}"]{title, keywords, description
 	  }`)
 
     return {
         title: post[0].title,
-        description: post[0].body,
+        description: post[0].description,
+        keywords: post[0].keywords
     }
 }
 export default async function Page({ params }: { params: { slug: string } }) {

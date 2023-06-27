@@ -29,7 +29,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
                     alignItems: 'center',
                     justifyContent: 'center',
                 }}
-                className={`${inter.className} font-bold`}
+                className={`${inter.className} font-bold text-white`}
             >
                 {params.slug}
             </div>
