@@ -34,7 +34,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
                     textTransform: 'capitalize',
                 }}
             >
-                {post.title}
+                {post[0].title}
             </div>
         ),
         // ImageResponse options
