@@ -16,41 +16,37 @@ export const contentType = 'image/png'
 // Font
 const inter = Inter({ subsets: ['latin'] })
 
-interface Post{
-    title: string
-}
-
 // Image generation
 export default async function Image({ params }: { params: { slug: string } }) {
-  const post = await fetch(`/posts/${params.slug}`).then((res) =>
-  res.json()
-) as Post
-    return new ImageResponse(
-        (
-            // ImageResponse JSX element
-            <div
-                style={{
-                    fontSize: 128,
-                    background: 'black',
-                    width: '100%',
-                    height: '100%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'white',
-                    fontWeight: 'bold',
-                    textTransform: 'capitalize',
-                }}
-                className={inter.className}
-            >
-                {post.title}
-            </div>
-        ),
-        // ImageResponse options
-        {
-            // For convenience, we can re-use the exported opengraph-image
-            // size config to also set the ImageResponse's width and height.
-            ...size,
-        }
-    )
+  const post: any = await fetch(`/posts/${params.slug}`).then((res) =>
+      res.json()
+  )
+  return new ImageResponse(
+      (
+          // ImageResponse JSX element
+          <div
+              style={{
+                  fontSize: 128,
+                  background: 'black',
+                  width: '100%',
+                  height: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'white',
+                  fontWeight: 'bold',
+                  textTransform: 'capitalize',
+              }}
+              className={inter.className}
+          >
+              {JSON.stringify(post.title)}
+          </div>
+      ),
+      // ImageResponse options
+      {
+          // For convenience, we can re-use the exported opengraph-image
+          // size config to also set the ImageResponse's width and height.
+          ...size,
+      }
+  )
 }
