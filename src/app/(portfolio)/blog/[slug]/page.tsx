@@ -1,8 +1,25 @@
 import Link from 'next/link'
 import { client } from '../../../../../sanity/lib/client.mts'
-import { portableComponents } from '../../../../../sanity/lib/portableComponents'
-import PortableTextComponent from '@/components/ui/portable-text-component';
+import PortableTextComponent from '@/components/ui/portable-text-component'
+import { Metadata } from 'next'
 
+type Props = {
+    params: { slug: string }
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    // fetch data
+    const post =
+        await client.fetch(`*[slug.current == "${params.slug}" && defined(author->name)]{
+		"author": author->name,
+		  body, title
+	  }`)
+
+    return {
+        title: post[0].title,
+        description: post[0].body,
+    }
+}
 export default async function Page({ params }: { params: { slug: string } }) {
     const post =
         await client.fetch(`*[slug.current == "${params.slug}" && defined(author->name)]{
