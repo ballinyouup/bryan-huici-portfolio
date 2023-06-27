@@ -11,7 +11,7 @@ COPY package*.json ./
 RUN npm ci
 
 # Copy the rest of the application to the work directory
-COPY . .
+# COPY . .
 
 # Build the application
 RUN npm run build
