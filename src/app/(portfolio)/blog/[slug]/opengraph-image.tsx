@@ -31,7 +31,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
                     justifyContent: 'center',
                     color: 'white',
                     fontWeight: 'bold',
-                    textTransform: 'capitalize',
+                    textTransform: 'uppercase',
                 }}
             >
                 {post[0].title}
@@ -42,7 +42,6 @@ export default async function Image({ params }: { params: { slug: string } }) {
             // For convenience, we can re-use the exported opengraph-image
             // size config to also set the ImageResponse's width and height.
             ...size,
-            debug: true,
         }
     )
 }
