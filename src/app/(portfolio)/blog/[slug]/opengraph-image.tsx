@@ -1,5 +1,6 @@
 import { ImageResponse } from 'next/server'
 import { client } from '../../../../../sanity/lib/client.mts'
+import "../../globals.css"
 // Route segment config
 // export const runtime = 'edge'
 
