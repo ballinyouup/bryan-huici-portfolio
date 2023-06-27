@@ -1,10 +1,8 @@
-'use client'
 import Image from 'next/image'
 import { client } from '../../../sanity/lib/client.mts'
 import { urlForImage } from '../../../sanity/lib/image'
 import type { Image as SanityImage } from 'sanity'
-import { PortableText } from '@portabletext/react'
-import { portableComponents } from '../../../sanity/lib/portableComponents'
+import PortableTextComponent from './portable-text-component'
 interface Projects {
     title?: string
     image?: SanityImage
@@ -56,9 +54,8 @@ export default async function Projects() {
                                 <span className="text-xl">
                                     By: {project.author}
                                 </span>
-                                <PortableText
+                                <PortableTextComponent
                                     value={project.summary}
-                                    components={portableComponents}
                                     onMissingComponent={false}
                                 />
                             </div>
