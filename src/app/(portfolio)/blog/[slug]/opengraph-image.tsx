@@ -1,8 +1,8 @@
 import { ImageResponse } from 'next/server'
 import { Inter } from 'next/font/google'
-import { client } from '../../../../../sanity/lib/client.mts'
+
 // Route segment config
-export const runtime = 'edge'
+// export const runtime = 'edge'
 
 // Image metadata
 export const alt = 'Bryan Huici Blog Post Image'
@@ -15,11 +15,16 @@ export const contentType = 'image/png'
 
 // Font
 const inter = Inter({ subsets: ['latin'] })
+
+interface Post{
+    title: string
+}
+
 // Image generation
 export default async function Image({ params }: { params: { slug: string } }) {
-    const post =
-        await client.fetch(`*[slug.current == "${params.slug}"]{title, keywords, description
-	  }`)
+  const post = await fetch(`/posts/${params.slug}`).then((res) =>
+  res.json()
+) as Post
     return new ImageResponse(
         (
             // ImageResponse JSX element
