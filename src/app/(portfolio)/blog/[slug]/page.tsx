@@ -22,7 +22,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         )
     }
     return (
-        <div className="flex w-full flex-col items-center p-4">
+        <div className="flex w-full h-full flex-col items-center p-4 pt-20">
             <div className="flex w-full max-w-5xl flex-col">
                 <div className="py-4">
                     <h1 className="text-5xl font-bold capitalize">

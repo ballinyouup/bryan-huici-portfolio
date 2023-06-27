@@ -18,7 +18,7 @@ export default async function Page() {
 	  }`)
 
     return (
-        <div className="flex h-full w-full flex-col items-center p-2 text-white">
+        <div className="flex h-full w-full flex-col items-center p-2 pt-20 text-white">
             {posts.map((post: Post) => {
                 return (
                     <Link
@@ -30,7 +30,7 @@ export default async function Page() {
                             key={post.slug.current}
                         >
                             <div>
-                                <h1 className="font-bold">{post.title}</h1>
+                                <h3 className="font-bold">{post.title}</h3>
                                 <p className="text-lg">By: {post.author}</p>
                             </div>
 
