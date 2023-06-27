@@ -18,7 +18,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 // Image generation
 export default async function Image({ params }: { params: { slug: string } }) {
-    const post = await fetch(`https://.../posts/${params.slug}`).then((res) =>
+    const post = await fetch(`/posts/${params.slug}`).then((res) =>
     res.json()
   ) as {title: string}
   return new ImageResponse(
