@@ -1,5 +1,6 @@
 import { ImageResponse } from 'next/server'
 import { Inter } from 'next/font/google'
+import { client } from '../../../../../sanity/lib/client.mts'
 // Route segment config
 export const runtime = 'edge'
 
@@ -16,6 +17,9 @@ export const contentType = 'image/png'
 const inter = Inter({ subsets: ['latin'] })
 // Image generation
 export default async function Image({ params }: { params: { slug: string } }) {
+    const post =
+        await client.fetch(`*[slug.current == "${params.slug}"]{title, keywords, description
+	  }`)
     return new ImageResponse(
         (
             // ImageResponse JSX element
@@ -30,10 +34,11 @@ export default async function Image({ params }: { params: { slug: string } }) {
                     justifyContent: 'center',
                     color: 'white',
                     fontWeight: 'bold',
+                    textTransform: 'capitalize',
                 }}
                 className={inter.className}
             >
-                {params.slug}
+                {post.title}
             </div>
         ),
         // ImageResponse options
