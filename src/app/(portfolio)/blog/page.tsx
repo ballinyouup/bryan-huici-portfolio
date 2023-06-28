@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { client } from '../../../../sanity/lib/client.mts'
-import PlainTextComponent from '@/components/ui/plain-text-component'
+import { format } from 'date-fns'
+import { enUS } from 'date-fns/locale'
 
 interface Post {
     author: string
@@ -9,12 +10,13 @@ interface Post {
     }
     description: string
     title: string
+    publishedAt: string
 }
 
 export default async function Page() {
     const posts = await client.fetch(`*[_type == "post"]{
 		"author": author->name,
-		  description, title, slug
+		  description, title, slug, publishedAt
 	  }`)
 
     return (
@@ -29,8 +31,15 @@ export default async function Page() {
                         <div>
                             <h5 className="font-bold">{post.title}</h5>
                             <p className="text-lg">By: {post.author}</p>
+                            <p>
+                                {format(
+                                    new Date(post.publishedAt),
+                                    'MM-dd-yyyy hh:mm:ss a',
+                                    { locale: enUS }
+                                )}
+                            </p>
                         </div>
-                        <p className='line-clamp-3'>{post.description}</p>
+                        <p className="line-clamp-3">{post.description}</p>
                     </Link>
                 )
             })}
