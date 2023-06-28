@@ -16,6 +16,11 @@ export default defineType({
             type: 'string',
         }),
         defineField({
+            name: 'github',
+            title: 'Site - Github',
+            type: 'string',
+        }),
+        defineField({
             name: 'slug',
             title: 'Slug',
             type: 'slug',

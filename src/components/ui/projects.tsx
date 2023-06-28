@@ -20,7 +20,7 @@ function wait(ms: number) {
 export default async function Projects() {
     // await wait(5000)
     const projects: Projects[] = await client.fetch(`*[_type == "projects"]{
-		"author": author->name, "slug": slug.current, summary, title, "image": mainImage, "alt": mainImage.alt
+		"author": author->name, "slug": slug.current, summary, title, "image": mainImage, "alt": mainImage.alt, link, github
 	  }`)
     return (
         <div className="flex h-desktop w-full flex-col items-center gap-8  p-12">
