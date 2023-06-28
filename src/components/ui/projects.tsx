@@ -3,6 +3,8 @@ import { client } from '../../../sanity/lib/client.mts'
 import { urlForImage } from '../../../sanity/lib/image'
 import type { Image as SanityImage } from 'sanity'
 import PortableTextComponent from './portable-text-component'
+import NavButton from '@/components/ui/nav-button'
+import { GithubIcon, Globe } from 'lucide-react'
 interface Projects {
     title?: string
     image?: SanityImage
@@ -11,6 +13,8 @@ interface Projects {
     body?: string
     alt?: string
     summary?: any
+    link: string
+    github: string
 }
 
 function wait(ms: number) {
@@ -58,6 +62,18 @@ export default async function Projects() {
                                     value={project.summary}
                                     onMissingComponent={false}
                                 />
+                                <NavButton
+                                    href={project.link ?? ''}
+                                    name="Site"
+                                >
+                                    <Globe className="h-5 w-5" />
+                                </NavButton>
+                                <NavButton
+                                    href={project.github ?? ''}
+                                    name="Github"
+                                >
+                                    <GithubIcon className="h-5 w-5" />
+                                </NavButton>
                             </div>
                         </div>
                     )
