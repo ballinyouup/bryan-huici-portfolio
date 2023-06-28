@@ -4,7 +4,7 @@ import { urlForImage } from '../../../sanity/lib/image'
 import type { Image as SanityImage } from 'sanity'
 import PortableTextComponent from './portable-text-component'
 import NavButton from '@/components/ui/nav-button'
-import { GithubIcon, Globe } from 'lucide-react'
+import { GithubIcon, Globe, ArrowRightToLine } from 'lucide-react'
 interface Projects {
     title?: string
     image?: SanityImage
@@ -73,6 +73,12 @@ export default async function Projects() {
                                     name="Github"
                                 >
                                     <GithubIcon className="h-5 w-5" />
+                                </NavButton>
+                                <NavButton
+                                    href={`/projects/${project.slug}` ?? ''}
+                                    name="Learn More"
+                                >
+                                    <ArrowRightToLine className="h-5 w-5" />
                                 </NavButton>
                             </div>
                         </div>

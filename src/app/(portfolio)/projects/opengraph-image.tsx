@@ -3,7 +3,7 @@ import { ImageResponse } from 'next/server'
 // export const runtime = 'edge'
 
 // Image metadata
-export const alt = 'Bryan Huici Blog Post Image'
+export const alt = 'Bryan Huici Projects Image'
 export const size = {
     width: 1200,
     height: 630,
@@ -30,7 +30,7 @@ export default async function Image() {
                     textTransform: 'uppercase',
                 }}
             >
-                Blog
+                Projects
             </div>
         ),
         // ImageResponse options
