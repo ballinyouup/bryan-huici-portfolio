@@ -1,9 +1,9 @@
-import Link from 'next/link'
 import { client } from '../../../../../sanity/lib/client.mts'
 import PortableTextComponent from '@/components/ui/portable-text-component'
 import { Metadata } from 'next'
 import { format } from 'date-fns'
 import { enUS } from 'date-fns/locale'
+import {notFound} from "next/navigation"
 type Props = {
     params: { slug: string }
 }
@@ -28,14 +28,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 	  }`)
     if (post.length === 0 || !post[0]) {
         return (
-            <div className="relative h-full">
-                <div className="absolute left-1/2 top-1/3 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2">
-                    <span className="text-5xl">Not Found</span>
-                    <Link href="/blog" className="text-lg underline">
-                        Return to Blog Posts
-                    </Link>
-                </div>
-            </div>
+            notFound()
         )
     }
     return (
