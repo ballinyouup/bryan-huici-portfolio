@@ -26,12 +26,6 @@ export default defineType({
             to: { type: 'author' },
         }),
         defineField({
-            name: 'tags',
-            title: 'tags',
-            type: 'reference',
-            to: { type: 'tag' },
-        }),
-        defineField({
             name: 'mainImage',
             title: 'Main image',
             type: 'image',
@@ -81,13 +75,9 @@ export default defineType({
         }),
         defineField({
             name: 'keywords',
-            type: 'array',
             title: 'SEO - Keywords',
-            of: [
-                defineArrayMember({
-                    type: 'string',
-                }),
-            ],
+            type: 'reference',
+            to: { type: 'keyword' },
         }),
     ],
 
