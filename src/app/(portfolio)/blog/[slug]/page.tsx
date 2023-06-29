@@ -6,6 +6,7 @@ import { enUS } from 'date-fns/locale'
 import {notFound} from "next/navigation"
 import Image from 'next/image'
 import { urlForImage } from '../../../../../sanity/lib/image'
+
 type Props = {
     params: { slug: string }
 }
@@ -31,7 +32,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         return notFound()
     }
     return (
-        <div className="flex h-full w-full items-start justify-center p-4 pt-20">
+        <div className="flex min-h-full w-full items-start justify-center p-4 pt-20">
             <div className="flex w-full max-w-5xl flex-col items-center justify-center">
                 {post[0].image ? (
                     <Image

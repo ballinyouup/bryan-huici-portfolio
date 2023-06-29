@@ -26,6 +26,7 @@ export default function Footer() {
                                 <Link
                                     href="https://www.github.com/ballinyouup"
                                     className="flex w-fit items-center justify-start gap-2"
+                                    passHref
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -50,6 +51,7 @@ export default function Footer() {
                                 <Link
                                     href="https://www.linkedin.com/in/bryanhuici/"
                                     className="flex w-fit items-center justify-start gap-2"
+                                    passHref
                                 >
                                     <Github
                                         className="h-6 w-6"
@@ -69,6 +71,7 @@ export default function Footer() {
                                 <Link
                                     href="https://www.twitter.com/ballin_codes"
                                     className="flex items-start justify-start gap-2"
+                                    passHref
                                 >
                                     <Linkedin
                                         className="h-6 w-6"
@@ -88,6 +91,7 @@ export default function Footer() {
                                 <Link
                                     href="https://www.twitter.com/ballin_codes"
                                     className="flex items-start justify-start gap-2"
+                                    passHref
                                 >
                                     <MailIcon className="h-6 w-6" />
                                     <span className="text-lg font-bold">

@@ -31,6 +31,7 @@ export default async function Page() {
                         href={`/blog/${post.slug.current}`}
                         key={post.slug.current}
                         className="flex md:flex-row flex-col h-fit md:h-80 w-full max-w-5xl hover:bg-accent transition-all p-2 overflow-hidden gap-2"
+                        passHref
                     >
                         <div className='h-full w-full overflow-hidden'>
                             {post.image ? (
