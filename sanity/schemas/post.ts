@@ -26,6 +26,12 @@ export default defineType({
             to: { type: 'author' },
         }),
         defineField({
+            name: 'tags',
+            title: 'tags',
+            type: 'reference',
+            to: { type: 'tag' },
+        }),
+        defineField({
             name: 'mainImage',
             title: 'Main image',
             type: 'image',
@@ -41,12 +47,6 @@ export default defineType({
             ],
         }),
         defineField({
-            name: 'categories',
-            title: 'Categories',
-            type: 'array',
-            of: [{ type: 'reference', to: { type: 'category' } }],
-        }),
-        defineField({
             name: 'publishedAt',
             title: 'Published at',
             type: 'datetime',
@@ -55,6 +55,24 @@ export default defineType({
             name: 'body',
             title: 'Body',
             type: 'blockContent',
+            options: {
+                fields: [
+                    defineField({
+                        type: 'code',
+                        name: 'code',
+                        title: 'code',
+                        options: {
+                            language: 'javascript',
+                            languageAlternatives: [
+                                { title: 'Javascript', value: 'javascript' },
+                                { title: 'HTML', value: 'html' },
+                                { title: 'CSS', value: 'css' },
+                            ],
+                            withFilename: true,
+                        },
+                    }),
+                ],
+            }
         }),
         defineField({
             name: 'description',
