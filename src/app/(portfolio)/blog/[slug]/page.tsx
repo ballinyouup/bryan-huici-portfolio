@@ -6,17 +6,30 @@ import { enUS } from 'date-fns/locale'
 import {notFound} from "next/navigation"
 import Image from 'next/image'
 import { urlForImage } from '../../../../../sanity/lib/image'
-
+import { Badge } from '@/components/ui/badge';
+import type { Image as Image2 } from 'sanity';
 type Props = {
     params: { slug: string }
+}
+
+interface Post {
+    author: string;
+    slug: {
+        current: string;
+    };
+    description: string;
+    title: string;
+    publishedAt: string;
+    image: Image2;
+    keywords: string[];
+    body: any;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // fetch data
     const post =
-        await client.fetch(`*[slug.current == "${params.slug}"]{title, keywords, description
+        await client.fetch(`*[slug.current == "${params.slug}"]{title, "keywords": keywords[]->title, description
 	  }`)
-
     return {
         title: post[0].title,
         description: post[0].description,
@@ -26,8 +39,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: { params: { slug: string } }) {
     const post = await client.fetch(`*[slug.current == "${params.slug}"]{
 		"author": author->name,
-		  body, title, publishedAt, "image": mainImage
-	  }`)
+		  body, title, publishedAt, "image": mainImage, "keywords": keywords[]->title
+	  }`) as Post[];
+
     if (post.length === 0 || !post[0]) {
         return notFound()
     }
@@ -61,6 +75,19 @@ export default async function Page({ params }: { params: { slug: string } }) {
                             { locale: enUS }
                         )}
                     </p>
+                    {post[0].keywords ? (
+                        <div className="flex gap-2">
+                            {post[0].keywords
+                                .slice(0, 4)
+                                .map((keyword: string) => {
+                                    return (
+                                        <Badge key={keyword}>
+                                            {keyword}
+                                        </Badge>
+                                    );
+                                })}
+                        </div>
+                    ) : null}
                     <PortableTextComponent
                         value={post[0].body ?? {}}
                         onMissingComponent={false}

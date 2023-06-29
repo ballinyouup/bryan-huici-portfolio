@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity'
+import { defineField, defineType, defineArrayMember } from 'sanity'
 
 export default defineType({
     name: 'projects',
@@ -61,10 +61,24 @@ export default defineType({
             type: 'blockContent',
         }),
         defineField({
-            name: 'summary',
-            title: 'Summary',
-            type: 'blockContent',
+            name: 'description',
+            title: 'SEO - Description',
+            type: 'string',
         }),
+        defineField({
+            name: "keywords",
+            title: "SEO - Keywords",
+            type: "array",
+            of: [
+                defineArrayMember({
+                    name: 'keyword',
+                    title: 'keyword',
+                    type: 'reference',
+                    to: { type: 'keyword' },
+                })
+            ]
+        })
+
     ],
 
     preview: {

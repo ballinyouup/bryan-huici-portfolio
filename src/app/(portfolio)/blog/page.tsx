@@ -21,9 +21,9 @@ interface Post {
 export default async function Page() {
     const posts =
         await client.fetch(`*[_type == "post"]| order(publishedAt desc){
-		"author": author->name,
-		  description, title, slug, publishedAt, "image": mainImage, keywords
-	  }`);
+            "author": author->name,
+              description, title, slug, publishedAt, "image": mainImage, "keywords": keywords[]->title
+          }`);
 
     return (
         <div className="flex h-full w-full flex-col items-center p-2 pt-20 text-white">

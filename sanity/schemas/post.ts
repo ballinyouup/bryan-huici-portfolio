@@ -74,11 +74,18 @@ export default defineType({
             type: 'string',
         }),
         defineField({
-            name: 'keywords',
-            title: 'SEO - Keywords',
-            type: 'reference',
-            to: { type: 'keyword' },
-        }),
+            name: "keywords",
+            title: "SEO - Keywords",
+            type: "array",
+            of: [
+                defineArrayMember({
+                    name: 'keyword',
+                    title: 'keyword',
+                    type: 'reference',
+                    to: { type: 'keyword' },
+                })
+            ]
+        })
     ],
 
     preview: {

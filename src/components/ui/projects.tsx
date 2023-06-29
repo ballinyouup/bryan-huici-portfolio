@@ -5,6 +5,7 @@ import type { Image as SanityImage } from 'sanity';
 import PortableTextComponent from './portable-text-component';
 import NavButton from '@/components/ui/nav-button';
 import { GithubIcon, Globe, ArrowRightToLine } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 //import { wait } from '@/lib/utils';
 interface Projects {
     title?: string;
@@ -13,9 +14,10 @@ interface Projects {
     slug?: string;
     body?: string;
     alt?: string;
-    summary?: any;
+    description?: any;
     link: string;
     github: string;
+    keywords: string[];
 }
 
 
@@ -23,7 +25,7 @@ interface Projects {
 export default async function Projects() {
     // await wait(5000)
     const projects: Projects[] = await client.fetch(`*[_type == "projects"]{
-		"author": author->name, "slug": slug.current, summary, title, "image": mainImage, "alt": mainImage.alt, link, github
+		"author": author->name, "slug": slug.current, description, title, "image": mainImage, "alt": mainImage.alt, link, github, "keywords": keywords[]->title
 	  }`);
     return (
         <div className="flex h-desktop w-full flex-col items-center gap-8  p-12">
@@ -61,9 +63,22 @@ export default async function Projects() {
                                         </span>
                                     </div>
                                     <PortableTextComponent
-                                        value={project.summary}
+                                        value={project.description}
                                         onMissingComponent={false}
                                     />
+                                    {project.keywords ? (
+                                        <div className="flex gap-2">
+                                            {project.keywords
+                                                .slice(0, 4)
+                                                .map((keyword) => {
+                                                    return (
+                                                        <Badge key={keyword}>
+                                                            {keyword}
+                                                        </Badge>
+                                                    );
+                                                })}
+                                        </div>
+                                    ) : null}
                                 </div>
                                 <div className='flex md:flex-row flex-col gap-2'>
                                     <NavButton
