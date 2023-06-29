@@ -63,7 +63,7 @@ export default defineType({
         defineField({
             name: 'description',
             title: 'SEO - Description',
-            type: 'string',
+            type: 'blockContent',
         }),
         defineField({
             name: "keywords",

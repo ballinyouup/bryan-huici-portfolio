@@ -1,36 +1,34 @@
-import Image from 'next/image';
-import { client } from '../../../sanity/lib/client.mts';
-import { urlForImage } from '../../../sanity/lib/image';
-import type { Image as SanityImage } from 'sanity';
-import PortableTextComponent from './portable-text-component';
-import NavButton from '@/components/ui/nav-button';
-import { GithubIcon, Globe, ArrowRightToLine } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
+import Image from 'next/image'
+import { client } from '../../../sanity/lib/client.mts'
+import { urlForImage } from '../../../sanity/lib/image'
+import type { Image as SanityImage } from 'sanity'
+import NavButton from '@/components/ui/nav-button'
+import { GithubIcon, Globe, ArrowRightToLine } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
+import PlainTextComponent from './plain-text-component'
+import PortableTextComponent from './portable-text-component'
 //import { wait } from '@/lib/utils';
 interface Projects {
-    title?: string;
-    image?: SanityImage;
-    author?: string;
-    slug?: string;
-    body?: string;
-    alt?: string;
-    description?: any;
-    link: string;
-    github: string;
-    keywords: string[];
+    title?: string
+    image?: SanityImage
+    author?: string
+    slug?: string
+    alt?: string
+    description?: string
+    link?: string
+    github?: string
+    keywords?: string[]
 }
-
-
 
 export default async function Projects() {
     // await wait(5000)
     const projects: Projects[] = await client.fetch(`*[_type == "projects"]{
-		"author": author->name, "slug": slug.current, description, title, "image": mainImage, "alt": mainImage.alt, link, github, "keywords": keywords[]->title
-	  }`);
+		"author": author->name, "slug": slug.current, "description": description, title, "image": mainImage, "alt": mainImage.alt, link, github, "keywords": keywords[]->title
+	  }`)
     return (
-        <div className="flex h-desktop w-full flex-col items-center gap-8  p-12">
+        <div className="flex w-full flex-col items-center gap-8 p-12  md:h-desktop">
             <span className="text-6xl font-bold">PROJECTS</span>
-            <div className="flex h-full w-full flex-col items-center p-5 text-white">
+            <div className="flex w-full flex-col items-center p-5 text-white">
                 {projects.map((project) => {
                     return (
                         <div
@@ -52,9 +50,9 @@ export default async function Projects() {
                                     height={320}
                                 />
                             ) : null}
-                            <div className="flex w-full flex-col place-content-between h-full">
-                                <div className='flex flex-col w-full items-start gap-4'>
-                                    <div className='flex flex-col w-full'>
+                            <div className="flex h-full w-full flex-col place-content-between md:w-1/2">
+                                <div className="flex h-full w-full flex-col items-start gap-4">
+                                    <div className="flex w-full flex-col">
                                         <h4 className="font-bold uppercase">
                                             {project.title}
                                         </h4>
@@ -62,10 +60,6 @@ export default async function Projects() {
                                             By: {project.author}
                                         </span>
                                     </div>
-                                    <PortableTextComponent
-                                        value={project.description}
-                                        onMissingComponent={false}
-                                    />
                                     {project.keywords ? (
                                         <div className="flex gap-2">
                                             {project.keywords
@@ -75,12 +69,17 @@ export default async function Projects() {
                                                         <Badge key={keyword}>
                                                             {keyword}
                                                         </Badge>
-                                                    );
+                                                    )
                                                 })}
                                         </div>
                                     ) : null}
+                                    <PortableTextComponent
+                                        value={project.description ?? {}}
+                                        onMissingComponent={false}
+                                        key={project.description}
+                                    />
                                 </div>
-                                <div className='flex md:flex-row flex-col gap-2'>
+                                <div className="flex flex-col flex-wrap items-start gap-2 whitespace-nowrap md:flex-row">
                                     <NavButton
                                         href={project.link ?? ''}
                                         name="Site"
@@ -102,9 +101,9 @@ export default async function Projects() {
                                 </div>
                             </div>
                         </div>
-                    );
+                    )
                 })}
             </div>
         </div>
-    );
+    )
 }
