@@ -33,13 +33,13 @@ export default async function Projects() {
                 </span>
             </div>
             <div className="flex w-full flex-col items-center gap-10 text-white">
-                {projects.slice(0, 1).map((project) => {
+                {projects.slice(0, 2).map((project) => {
                     return (
                         <div
-                            className="flex h-fit w-full max-w-5xl flex-col items-center justify-center gap-4 lg:flex-row lg:items-start p-4 lg:justify-start bg-accent rounded-xl"
+                            className="flex h-fit w-full max-w-5xl flex-col items-center justify-center gap-4 rounded-xl bg-accent p-4 lg:flex-row lg:items-start lg:justify-start"
                             key={project.slug}
                         >
-                            <div className="h-80 overflow-hidden rounded-xl w-full">
+                            <div className="h-80 w-full overflow-hidden rounded-xl">
                                 {project.image ? (
                                     <Image
                                         src={urlForImage(project.image)
@@ -48,15 +48,13 @@ export default async function Projects() {
                                             .fit('max')
                                             .auto('format')
                                             .url()}
-                                        alt={
-                                            project.image.alt as string
-                                        }
+                                        alt={project.image.alt as string}
                                         width={1024}
                                         height={1024}
                                     />
                                 ) : null}
                             </div>
-                            <div className="flex w-full flex-col place-content-between gap-2 lg:h-full lg:w-1/2 bg-secondary/40 p-4 rounded-xl">
+                            <div className="flex w-full flex-col place-content-between gap-2 rounded-xl bg-secondary/40 p-4 lg:h-full lg:w-1/2">
                                 <div className="flex w-full flex-col items-start gap-4 lg:h-full">
                                     <div className="flex w-full flex-col">
                                         <h4 className="font-bold uppercase">
@@ -72,22 +70,16 @@ export default async function Projects() {
                                                 .slice(0, 4)
                                                 .map((keyword) => {
                                                     return (
-                                                                <Badge
-                                                                    key={
-                                                                        keyword
-                                                                    }
-                                                                >
-                                                                    {keyword}
-                                                                </Badge>
-                                                            );
-                                                        })}
+                                                        <Badge key={keyword}>
+                                                            {keyword}
+                                                        </Badge>
+                                                    );
+                                                })}
                                         </div>
                                     ) : null}
 
                                     <PortableTextComponent
-                                        value={
-                                            project.description ?? {}
-                                        }
+                                        value={project.description ?? {}}
                                         onMissingComponent={false}
                                         key={project.description}
                                     />
@@ -106,10 +98,7 @@ export default async function Projects() {
                                         <GithubIcon className="h-5 w-5" />
                                     </NavButton>
                                     <NavButton
-                                        href={
-                                            `/projects/${project.slug}` ??
-                                            ''
-                                        }
+                                        href={`/projects/${project.slug}` ?? ''}
                                         name="Learn More"
                                     >
                                         <ArrowRightToLine className="h-5 w-5" />
@@ -133,10 +122,7 @@ export default async function Projects() {
                                         <GithubIcon className="h-5 w-5" />
                                     </NavButton>
                                     <NavButton
-                                        href={
-                                            `/projects/${project.slug}` ??
-                                            ''
-                                        }
+                                        href={`/projects/${project.slug}` ?? ''}
                                         name="Learn More"
                                         variant={'default'}
                                         className="w-full"
@@ -146,9 +132,12 @@ export default async function Projects() {
                                 </div>
                             </div>
                         </div>
-                    );
+                    )
                 })}
             </div>
+            <NavButton href="/projects" name="See More" variant={'default'} className="w-full">
+                <ArrowRightToLine className="h-5 w-5" />
+            </NavButton>
         </div>
     )
 }
