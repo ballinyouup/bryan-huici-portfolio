@@ -27,14 +27,14 @@ export default async function Projects() {
 	  }`)
     return (
         <div className="flex w-full flex-col items-center gap-8 p-8 md:h-desktop md:p-12">
-            <div className="flex w-full max-w-5xl py-4 px-10 md:px-4">
-                <span className="text-6xl font-bold">PROJECTS</span>
+            <div className="flex w-full max-w-5xl">
+                <span className="text-[10vw] sm:text-6xl font-bold">PROJECTS</span>
             </div>
-            <div className="flex w-full flex-col items-center p-5 text-white">
+            <div className="flex w-full flex-col items-center text-white gap-10">
                 {projects.map((project) => {
                     return (
                         <div
-                            className="flex w-full max-w-5xl flex-col items-center justify-center gap-4 p-4 md:flex-row md:items-start md:justify-start"
+                            className="flex w-full max-w-5xl flex-col items-center justify-center gap-4 md:flex-row md:items-start md:justify-start"
                             key={project.slug}
                         >
                             {project.image ? (
