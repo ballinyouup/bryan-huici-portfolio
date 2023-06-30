@@ -30,7 +30,7 @@ export default async function Page() {
     return (
         <div className="pt-20">
             <Suspense fallback={<ProjectsLoading />}>
-                <div className="flex w-full flex-col items-center gap-8 p-8 md:h-desktop md:p-12">
+                <div className="flex h-full w-full flex-col items-center gap-8 p-8 lg:h-desktop lg:p-12">
                     <div className="flex w-full max-w-5xl">
                         <span className="text-[10vw] font-bold sm:text-6xl">
                             PROJECTS
@@ -40,26 +40,28 @@ export default async function Page() {
                         {projects.map((project) => {
                             return (
                                 <div
-                                    className="flex w-full max-w-5xl flex-col items-center justify-center gap-4 md:flex-row md:items-start md:justify-start"
+                                    className="flex h-fit w-full max-w-5xl flex-col items-center justify-center gap-4 lg:flex-row lg:items-start p-4 lg:justify-start bg-accent rounded-xl"
                                     key={project.slug}
                                 >
-                                    {project.image ? (
-                                        <Image
-                                            src={urlForImage(project.image)
-                                                .width(320)
-                                                .height(320)
-                                                .minHeight(320)
-                                                .minWidth(320)
-                                                .fit('min')
-                                                .auto('format')
-                                                .url()}
-                                            alt={project.image.alt as string}
-                                            width={320}
-                                            height={320}
-                                        />
-                                    ) : null}
-                                    <div className="flex w-full flex-col place-content-between gap-2 md:h-full md:w-1/2">
-                                        <div className="flex w-full flex-col items-start gap-4 md:h-full">
+                                    <div className="h-80 overflow-hidden rounded-xl w-full">
+                                        {project.image ? (
+                                            <Image
+                                                src={urlForImage(project.image)
+                                                    .width(1600)
+                                                    .height(1600)
+                                                    .fit('max')
+                                                    .auto('format')
+                                                    .url()}
+                                                alt={
+                                                    project.image.alt as string
+                                                }
+                                                width={1024}
+                                                height={1024}
+                                            />
+                                        ) : null}
+                                    </div>
+                                    <div className="flex w-full flex-col place-content-between gap-2 lg:h-full lg:w-1/2 bg-secondary/40 p-4 rounded-xl">
+                                        <div className="flex w-full flex-col items-start gap-4 lg:h-full">
                                             <div className="flex w-full flex-col">
                                                 <h4 className="font-bold uppercase">
                                                     {project.title}
@@ -94,7 +96,7 @@ export default async function Page() {
                                                 key={project.description}
                                             />
                                         </div>
-                                        <div className="hidden flex-row flex-wrap items-start gap-2 whitespace-nowrap md:flex">
+                                        <div className="hidden flex-row flex-wrap items-start gap-2 whitespace-nowrap lg:flex">
                                             <NavButton
                                                 href={project.link ?? ''}
                                                 name="Site"
@@ -117,7 +119,7 @@ export default async function Page() {
                                                 <ArrowRightToLine className="h-5 w-5" />
                                             </NavButton>
                                         </div>
-                                        <div className="flex w-full flex-col items-start gap-2 md:hidden">
+                                        <div className="flex w-full flex-col items-start gap-2 lg:hidden">
                                             <NavButton
                                                 href={project.link ?? ''}
                                                 name="Site"

@@ -39,10 +39,10 @@ export default async function Page() {
                             <Link
                                 href={`/blog/${post.slug.current}`}
                                 key={post.slug.current}
-                                className="flex h-fit w-full max-w-5xl flex-col gap-2 overflow-hidden transition-all hover:bg-accent md:h-80 md:flex-row"
+                                className="flex h-fit w-full max-w-5xl flex-col gap-2 overflow-hidden transition-all bg-accent p-4 lg:hover:bg-primary lg:h-80 lg:flex-row rounded-xl"
                                 passHref
                             >
-                                <div className="h-full w-full overflow-hidden">
+                                <div className="lg:h-full h-80 overflow-hidden rounded-t-xl rounded-none lg:rounded-xl">
                                     {post.image ? (
                                         <Image
                                             src={urlForImage(post.image)
@@ -52,12 +52,12 @@ export default async function Page() {
                                                 .auto('format')
                                                 .url()}
                                             alt={post.image.alt as string}
-                                            width={800}
-                                            height={800}
+                                            width={1600}
+                                            height={1600}
                                         />
                                     ) : null}
                                 </div>
-                                <div className="flex h-fit w-full flex-col gap-3 md:h-full">
+                                <div className="flex h-fit w-full flex-col gap-3 md:h-full bg-secondary/40 p-4 rounded-b-xl rounded-none lg:rounded-xl">
                                     <div>
                                         <h5 className="font-bold">
                                             {post.title}
@@ -81,7 +81,7 @@ export default async function Page() {
                                                 .slice(0, 4)
                                                 .map((keyword) => {
                                                     return (
-                                                        <Badge key={keyword}>
+                                                        <Badge key={keyword} variant={'secondary'}>
                                                             {keyword}
                                                         </Badge>
                                                     );
