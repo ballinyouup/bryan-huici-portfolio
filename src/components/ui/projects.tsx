@@ -26,13 +26,13 @@ export default async function Projects() {
 		"author": author->name, "slug": slug.current, "description": description, title, "image": mainImage, "alt": mainImage.alt, link, github, "keywords": keywords[]->title
 	  }`)
     return (
-        <div className="flex w-full flex-col items-center gap-8 p-12  md:h-desktop">
+        <div className="flex w-full flex-col items-center gap-8 p-8 sm:p-12  md:h-desktop">
             <span className="text-6xl font-bold">PROJECTS</span>
             <div className="flex w-full flex-col items-center p-5 text-white">
                 {projects.map((project) => {
                     return (
                         <div
-                            className="flex h-fit w-full max-w-5xl flex-col items-center justify-center gap-4 p-4 sm:flex-row sm:items-start sm:justify-start"
+                            className="flex h-fit w-full max-w-5xl flex-col items-center justify-center gap-4 p-4 md:flex-row md:items-start md:justify-start"
                             key={project.slug}
                         >
                             {project.image ? (
