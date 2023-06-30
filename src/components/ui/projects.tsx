@@ -52,8 +52,8 @@ export default async function Projects() {
                                     height={320}
                                 />
                             ) : null}
-                            <div className="flex w-full flex-col place-content-between gap-2 md:w-1/2">
-                                <div className="flex w-full flex-col items-start gap-4">
+                            <div className="flex w-full md:h-full flex-col place-content-between gap-2 md:w-1/2">
+                                <div className="flex md:h-full w-full flex-col items-start gap-4">
                                     <div className="flex w-full flex-col">
                                         <h4 className="font-bold uppercase">
                                             {project.title}
@@ -75,11 +75,13 @@ export default async function Projects() {
                                                 })}
                                         </div>
                                     ) : null}
+
                                     <PortableTextComponent
                                         value={project.description ?? {}}
                                         onMissingComponent={false}
                                         key={project.description}
                                     />
+
                                 </div>
                                 <div className="hidden flex-row flex-wrap items-start gap-2 whitespace-nowrap md:flex">
                                     <NavButton
