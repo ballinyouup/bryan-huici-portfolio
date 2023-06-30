@@ -26,34 +26,38 @@ export default async function Projects() {
 		"author": author->name, "slug": slug.current, "description": description, title, "image": mainImage, "alt": mainImage.alt, link, github, "keywords": keywords[]->title
 	  }`)
     return (
-        <div className="flex w-full flex-col items-center gap-8 p-8 md:h-desktop md:p-12">
-            <div className="flex w-full max-w-5xl items-center justify-center">
-                <span className="text-[10vw] sm:text-6xl font-bold">PROJECTS</span>
+        <div className="flex h-full w-full flex-col items-center gap-8 p-8 lg:h-desktop lg:p-12">
+            <div className="flex w-full max-w-5xl">
+                <span className="text-[10vw] font-bold sm:text-6xl">
+                    PROJECTS
+                </span>
             </div>
-            <div className="flex w-full flex-col items-center text-white gap-10">
-                {projects.map((project) => {
+            <div className="flex w-full flex-col items-center gap-10 text-white">
+                {projects.slice(0, 1).map((project) => {
                     return (
                         <div
-                            className="flex w-full max-w-5xl flex-col items-center justify-center gap-4 md:flex-row md:items-start md:justify-start"
+                            className="flex h-fit w-full max-w-5xl flex-col items-center justify-center gap-4 lg:flex-row lg:items-start p-4 lg:justify-start bg-accent rounded-xl"
                             key={project.slug}
                         >
-                            {project.image ? (
-                                <Image
-                                    src={urlForImage(project.image)
-                                        .width(320)
-                                        .height(320)
-                                        .minHeight(320)
-                                        .minWidth(320)
-                                        .fit('min')
-                                        .auto('format')
-                                        .url()}
-                                    alt={project.image.alt as string}
-                                    width={320}
-                                    height={320}
-                                />
-                            ) : null}
-                            <div className="flex w-full md:h-full flex-col place-content-between gap-2 md:w-1/2">
-                                <div className="flex md:h-full w-full flex-col items-start gap-4">
+                            <div className="h-80 overflow-hidden rounded-xl w-full">
+                                {project.image ? (
+                                    <Image
+                                        src={urlForImage(project.image)
+                                            .width(1600)
+                                            .height(1600)
+                                            .fit('max')
+                                            .auto('format')
+                                            .url()}
+                                        alt={
+                                            project.image.alt as string
+                                        }
+                                        width={1024}
+                                        height={1024}
+                                    />
+                                ) : null}
+                            </div>
+                            <div className="flex w-full flex-col place-content-between gap-2 lg:h-full lg:w-1/2 bg-secondary/40 p-4 rounded-xl">
+                                <div className="flex w-full flex-col items-start gap-4 lg:h-full">
                                     <div className="flex w-full flex-col">
                                         <h4 className="font-bold uppercase">
                                             {project.title}
@@ -68,22 +72,27 @@ export default async function Projects() {
                                                 .slice(0, 4)
                                                 .map((keyword) => {
                                                     return (
-                                                        <Badge key={keyword}>
-                                                            {keyword}
-                                                        </Badge>
-                                                    )
-                                                })}
+                                                                <Badge
+                                                                    key={
+                                                                        keyword
+                                                                    }
+                                                                >
+                                                                    {keyword}
+                                                                </Badge>
+                                                            );
+                                                        })}
                                         </div>
                                     ) : null}
 
                                     <PortableTextComponent
-                                        value={project.description ?? {}}
+                                        value={
+                                            project.description ?? {}
+                                        }
                                         onMissingComponent={false}
                                         key={project.description}
                                     />
-
                                 </div>
-                                <div className="hidden flex-row flex-wrap items-start gap-2 whitespace-nowrap md:flex">
+                                <div className="hidden flex-row flex-wrap items-start gap-2 whitespace-nowrap lg:flex">
                                     <NavButton
                                         href={project.link ?? ''}
                                         name="Site"
@@ -97,13 +106,16 @@ export default async function Projects() {
                                         <GithubIcon className="h-5 w-5" />
                                     </NavButton>
                                     <NavButton
-                                        href={`/projects/${project.slug}` ?? ''}
+                                        href={
+                                            `/projects/${project.slug}` ??
+                                            ''
+                                        }
                                         name="Learn More"
                                     >
                                         <ArrowRightToLine className="h-5 w-5" />
                                     </NavButton>
                                 </div>
-                                <div className="flex w-full flex-col items-start gap-2 md:hidden">
+                                <div className="flex w-full flex-col items-start gap-2 lg:hidden">
                                     <NavButton
                                         href={project.link ?? ''}
                                         name="Site"
@@ -121,7 +133,10 @@ export default async function Projects() {
                                         <GithubIcon className="h-5 w-5" />
                                     </NavButton>
                                     <NavButton
-                                        href={`/projects/${project.slug}` ?? ''}
+                                        href={
+                                            `/projects/${project.slug}` ??
+                                            ''
+                                        }
                                         name="Learn More"
                                         variant={'default'}
                                         className="w-full"
@@ -131,7 +146,7 @@ export default async function Projects() {
                                 </div>
                             </div>
                         </div>
-                    )
+                    );
                 })}
             </div>
         </div>
