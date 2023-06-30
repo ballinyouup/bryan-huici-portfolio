@@ -105,7 +105,7 @@ const Technologies = () => {
                 <div className="flex flex-col">
                 <h3 className="text-[10vw] md:text-6xl">TECHNOLOGIES</h3>
                     <span className="font-medium">
-                        These are the technologies I've used to create my projects
+                        These are the technologies I&apos;ve used to create my projects
                     </span>
                 </div>
                 <div className="hidden w-full max-w-3xl flex-wrap items-center justify-center gap-3 p-8 sm:flex">
