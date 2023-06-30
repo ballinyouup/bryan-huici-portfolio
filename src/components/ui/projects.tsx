@@ -4,10 +4,10 @@ import { urlForImage } from '../../../sanity/lib/image'
 import type { Image as SanityImage } from 'sanity'
 import NavButton from '@/components/ui/nav-button'
 import { GithubIcon, Globe, ArrowRightToLine } from 'lucide-react'
-import { Badge } from '@/components/ui/badge'
-import PlainTextComponent from './plain-text-component'
+import { Badge } from '@/components/ui/badge';
 import PortableTextComponent from './portable-text-component'
 //import { wait } from '@/lib/utils';
+
 interface Projects {
     title?: string
     image?: SanityImage
@@ -27,7 +27,7 @@ export default async function Projects() {
 	  }`)
     return (
         <div className="flex w-full flex-col items-center gap-8 p-8 md:h-desktop md:p-12">
-            <div className="flex w-full max-w-5xl">
+            <div className="flex w-full max-w-5xl items-center justify-center">
                 <span className="text-[10vw] sm:text-6xl font-bold">PROJECTS</span>
             </div>
             <div className="flex w-full flex-col items-center text-white gap-10">
