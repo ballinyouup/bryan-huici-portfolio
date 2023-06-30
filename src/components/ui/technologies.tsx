@@ -6,7 +6,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from './tooltip'
-
+import { cn } from '@/lib/utils';
 import { Popover, PopoverContent, PopoverTrigger } from './popover'
 const Technologies = () => {
     const tech = [
@@ -81,7 +81,6 @@ const Technologies = () => {
         {
             src: '/nextauth.png',
             alt: 'NextAuth',
-            padding: true,
         },
         {
             src: '/reactquery.svg',
@@ -117,9 +116,7 @@ const Technologies = () => {
                                         <Image
                                             src={item.src}
                                             alt={item.alt}
-                                            className={`${item.invert ? 'invert' : ''
-                                                } ${item.padding ? 'p-1.5' : ''
-                                                } object-cover`}
+                                            className={cn(item.invert ? 'invert' : '', item.padding ? "p-1.5" : "", "object-cover")}
                                             fill
                                             sizes="(max-width: 1024px) 96px, 120px"
                                         />
@@ -142,9 +139,7 @@ const Technologies = () => {
                                         <Image
                                             src={item.src}
                                             alt={item.alt}
-                                            className={`${item.invert ? 'invert' : ''
-                                                } ${item.padding ? 'p-1.5' : ''
-                                                } object-cover`}
+                                            className={cn(item.invert ? 'invert' : '', item.padding ? "p-1.5" : "", "object-cover")}
                                             height={70}
                                             width={70}
                                         />

@@ -33,7 +33,7 @@ const NavButton: React.FC<NavButtonProps> = ({
 }) => {
     const [isHovered, setIsHovered] = useState(false)
     return (
-        <Link href={href} className={`${title ? 'text-2xl font-bold' : ''} ${full ? "w-full" : ""}`}>
+        <Link href={href} className={full ? "w-full" : ""}>
             <Button
                 variant={variant ?? 'ghost'}
                 className={cn(
@@ -52,7 +52,7 @@ const NavButton: React.FC<NavButtonProps> = ({
                 >
                     {children}
                 </motion.div>
-                <span>{name}</span>
+                <span className={title ? "text-3xl font-bold" : ""}>{name}</span>
             </Button>
         </Link>
     )

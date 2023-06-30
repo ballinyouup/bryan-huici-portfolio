@@ -7,7 +7,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image'
 import { urlForImage } from '../../../../../sanity/lib/image'
 import { Badge } from '@/components/ui/badge';
-import type { Image as Image2 } from 'sanity';
+import type { Image as SanityImage } from 'sanity';
 type Props = {
     params: { slug: string }
 }
@@ -20,7 +20,7 @@ interface Post {
     description: string;
     title: string;
     publishedAt: string;
-    image: Image2;
+    image: SanityImage;
     keywords: string[];
     body: any;
 }

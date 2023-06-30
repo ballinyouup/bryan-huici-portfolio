@@ -26,7 +26,7 @@ export default async function Image() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: 'white',
-                    fontWeight: 'bold',
+                    fontWeight: 'bolder',
                     textTransform: 'uppercase',
                 }}
             >

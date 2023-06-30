@@ -125,6 +125,7 @@ export default async function Page() {
                                                 name="Site"
                                                 variant={'default'}
                                                 className="w-full"
+                                                full
                                             >
                                                 <Globe className="h-5 w-5" />
                                             </NavButton>
@@ -133,6 +134,7 @@ export default async function Page() {
                                                 name="Github"
                                                 variant={'default'}
                                                 className="w-full"
+                                                full
                                             >
                                                 <GithubIcon className="h-5 w-5" />
                                             </NavButton>
@@ -144,6 +146,7 @@ export default async function Page() {
                                                 name="Learn More"
                                                 variant={'default'}
                                                 className="w-full"
+                                                full
                                             >
                                                 <ArrowRightToLine className="h-5 w-5" />
                                             </NavButton>
