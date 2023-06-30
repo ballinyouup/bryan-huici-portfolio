@@ -19,6 +19,7 @@ interface NavButtonProps {
         | null
         | undefined
     className?: string
+    full?: boolean
 }
 
 const NavButton: React.FC<NavButtonProps> = ({
@@ -28,14 +29,16 @@ const NavButton: React.FC<NavButtonProps> = ({
     title = false,
     variant,
     className,
+    full = false
 }) => {
     const [isHovered, setIsHovered] = useState(false)
     return (
-        <Link href={href} className={title ? 'text-2xl font-bold' : ''}>
+        <Link href={href} className={`${title ? 'text-2xl font-bold' : ''} ${full ? "w-full" : ""}`}>
             <Button
                 variant={variant ?? 'ghost'}
                 className={cn(
                     'flex items-center gap-2 text-lg font-bold uppercase',
+                    full ? "w-full" : "",
                     className
                 )}
                 onMouseEnter={() => setIsHovered(true)}
