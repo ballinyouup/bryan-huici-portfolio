@@ -50,7 +50,7 @@ export default async function Projects() {
                                     height={320}
                                 />
                             ) : null}
-                            <div className="flex h-full w-full flex-col place-content-between md:w-1/2">
+                            <div className="flex h-full w-full flex-col place-content-between md:w-1/2 gap-2">
                                 <div className="flex h-full w-full flex-col items-start gap-4">
                                     <div className="flex w-full flex-col">
                                         <h4 className="font-bold uppercase">
@@ -79,7 +79,7 @@ export default async function Projects() {
                                         key={project.description}
                                     />
                                 </div>
-                                <div className="flex flex-col flex-wrap items-start gap-2 whitespace-nowrap md:flex-row">
+                                <div className="md:flex hidden flex-wrap items-start gap-2 whitespace-nowrap flex-row">
                                     <NavButton
                                         href={project.link ?? ''}
                                         name="Site"
@@ -95,6 +95,32 @@ export default async function Projects() {
                                     <NavButton
                                         href={`/projects/${project.slug}` ?? ''}
                                         name="Learn More"
+                                    >
+                                        <ArrowRightToLine className="h-5 w-5" />
+                                    </NavButton>
+                                </div>
+                                <div className="flex flex-col w-full items-start gap-2 md:hidden">
+                                    <NavButton
+                                        href={project.link ?? ''}
+                                        name="Site"
+                                        variant={"default"}
+                                        className='w-full'
+                                    >
+                                        <Globe className="h-5 w-5" />
+                                    </NavButton>
+                                    <NavButton
+                                        href={project.github ?? ''}
+                                        name="Github"
+                                        variant={"default"}
+                                        className='w-full'
+                                    >
+                                        <GithubIcon className="h-5 w-5" />
+                                    </NavButton>
+                                    <NavButton
+                                        href={`/projects/${project.slug}` ?? ''}
+                                        name="Learn More"
+                                        variant={"default"}
+                                        className='w-full'
                                     >
                                         <ArrowRightToLine className="h-5 w-5" />
                                     </NavButton>
