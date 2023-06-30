@@ -26,13 +26,15 @@ export default async function Projects() {
 		"author": author->name, "slug": slug.current, "description": description, title, "image": mainImage, "alt": mainImage.alt, link, github, "keywords": keywords[]->title
 	  }`)
     return (
-        <div className="flex w-full flex-col items-center gap-8 p-8 md:p-12  md:h-desktop">
-            <span className="text-6xl font-bold">PROJECTS</span>
+        <div className="flex w-full flex-col items-center gap-8 p-8 md:h-desktop md:p-12">
+            <div className="flex w-full max-w-5xl py-4 px-10 md:px-4">
+                <span className="text-6xl font-bold">PROJECTS</span>
+            </div>
             <div className="flex w-full flex-col items-center p-5 text-white">
                 {projects.map((project) => {
                     return (
                         <div
-                            className="flex h-fit w-full max-w-5xl flex-col items-center justify-center gap-4 p-4 md:flex-row md:items-start md:justify-start"
+                            className="flex w-full max-w-5xl flex-col items-center justify-center gap-4 p-4 md:flex-row md:items-start md:justify-start"
                             key={project.slug}
                         >
                             {project.image ? (
@@ -50,8 +52,8 @@ export default async function Projects() {
                                     height={320}
                                 />
                             ) : null}
-                            <div className="flex h-full w-full flex-col place-content-between md:w-1/2 gap-2">
-                                <div className="flex h-full w-full flex-col items-start gap-4">
+                            <div className="flex w-full flex-col place-content-between gap-2 md:w-1/2">
+                                <div className="flex w-full flex-col items-start gap-4">
                                     <div className="flex w-full flex-col">
                                         <h4 className="font-bold uppercase">
                                             {project.title}
@@ -79,7 +81,7 @@ export default async function Projects() {
                                         key={project.description}
                                     />
                                 </div>
-                                <div className="md:flex hidden flex-wrap items-start gap-2 whitespace-nowrap flex-row">
+                                <div className="hidden flex-row flex-wrap items-start gap-2 whitespace-nowrap md:flex">
                                     <NavButton
                                         href={project.link ?? ''}
                                         name="Site"
@@ -99,28 +101,28 @@ export default async function Projects() {
                                         <ArrowRightToLine className="h-5 w-5" />
                                     </NavButton>
                                 </div>
-                                <div className="flex flex-col w-full items-start gap-2 md:hidden">
+                                <div className="flex w-full flex-col items-start gap-2 md:hidden">
                                     <NavButton
                                         href={project.link ?? ''}
                                         name="Site"
-                                        variant={"default"}
-                                        className='w-full'
+                                        variant={'default'}
+                                        className="w-full"
                                     >
                                         <Globe className="h-5 w-5" />
                                     </NavButton>
                                     <NavButton
                                         href={project.github ?? ''}
                                         name="Github"
-                                        variant={"default"}
-                                        className='w-full'
+                                        variant={'default'}
+                                        className="w-full"
                                     >
                                         <GithubIcon className="h-5 w-5" />
                                     </NavButton>
                                     <NavButton
                                         href={`/projects/${project.slug}` ?? ''}
                                         name="Learn More"
-                                        variant={"default"}
-                                        className='w-full'
+                                        variant={'default'}
+                                        className="w-full"
                                     >
                                         <ArrowRightToLine className="h-5 w-5" />
                                     </NavButton>
