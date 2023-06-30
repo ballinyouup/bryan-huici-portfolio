@@ -26,7 +26,7 @@ export default async function Page() {
           }`);
 
     return (
-        <div className="flex h-full w-full flex-col items-center p-2 pt-20 text-white">
+        <div className="flex h-full w-full flex-col items-center p-8 pt-20 text-white">
             <div className="flex w-full max-w-5xl">
                 <span className="text-[10vw] font-bold sm:text-6xl">
                     BLOG
@@ -37,7 +37,7 @@ export default async function Page() {
                     <Link
                         href={`/blog/${post.slug.current}`}
                         key={post.slug.current}
-                        className="flex h-fit w-full max-w-5xl flex-col gap-2 overflow-hidden p-2 transition-all hover:bg-accent md:h-80 md:flex-row"
+                        className="flex h-fit w-full max-w-5xl flex-col gap-2 overflow-hidden transition-all hover:bg-accent md:h-80 md:flex-row"
                         passHref
                     >
                         <div className="h-full w-full overflow-hidden">
