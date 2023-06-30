@@ -38,6 +38,7 @@ const Technologies = () => {
         {
             src: '/html.svg',
             alt: 'HTML',
+            padding: true,
         },
         {
             src: '/css.svg',
@@ -80,7 +81,7 @@ const Technologies = () => {
         {
             src: '/nextauth.png',
             alt: 'NextAuth',
-            padding: true
+            padding: true,
         },
         {
             src: '/reactquery.svg',
@@ -100,8 +101,13 @@ const Technologies = () => {
     //[&>:first-child]:hover:!grayscale-0
     return (
         <div className="relative z-20 flex h-full min-h-phone w-full items-start justify-center pb-40 sm:h-desktop sm:pb-0">
-            <div className="flex w-fit flex-col items-center justify-center gap-4 text-center">
+            <div className="flex w-fit flex-col items-center justify-center gap-2 p-4 text-center">
+                <div className="flex flex-col">
                 <h3 className="text-[10vw] md:text-6xl">TECHNOLOGIES</h3>
+                    <span className="font-medium">
+                        These are the technologies I've used to create my projects
+                    </span>
+                </div>
                 <div className="hidden w-full max-w-3xl flex-wrap items-center justify-center gap-3 p-8 sm:flex">
                     <TooltipProvider>
                         {tech.map((item) => (
@@ -111,7 +117,9 @@ const Technologies = () => {
                                         <Image
                                             src={item.src}
                                             alt={item.alt}
-                                            className={`${item.invert ? 'invert' : ''} ${item.padding ? 'p-2' : ''} object-cover`}
+                                            className={`${item.invert ? 'invert' : ''
+                                                } ${item.padding ? 'p-1.5' : ''
+                                                } object-cover`}
                                             fill
                                             sizes="(max-width: 1024px) 96px, 120px"
                                         />
@@ -125,26 +133,29 @@ const Technologies = () => {
                     </TooltipProvider>
                 </div>
                 {/** MOBILE TECH */}
-                <div className="flex w-full h-phone flex-wrap items-center justify-center gap-1.5 p-4 sm:hidden">
-                    <span>These are the technologies I've used to create my projects</span>
-                    {tech.map((item) => (
-                        <Popover key={item.src}>
-                            <div className="z-20 h-20 w-20 overflow-hidden rounded-2xl">
-                                <PopoverTrigger className="relative flex h-full w-full items-center justify-center">
-                                    <Image
-                                        src={item.src}
-                                        alt={item.alt}
-                                        className={`${item.invert ? 'invert' : ''} ${item.padding ? 'p-2' : ''} object-cover`}
-                                        height={70}
-                                        width={70}
-                                    />
-                                </PopoverTrigger>
-                                <PopoverContent>
-                                    <p>{item.alt}</p>
-                                </PopoverContent>
-                            </div>
-                        </Popover>
-                    ))}
+                <div className="flex sm:hidden flex-col gap-2">
+                    <div className="flex w-full flex-wrap items-center justify-center gap-1.5">
+                        {tech.map((item) => (
+                            <Popover key={item.src}>
+                                <div className="z-20 h-20 w-20 overflow-hidden rounded-2xl">
+                                    <PopoverTrigger className="relative flex h-full w-full items-center justify-center">
+                                        <Image
+                                            src={item.src}
+                                            alt={item.alt}
+                                            className={`${item.invert ? 'invert' : ''
+                                                } ${item.padding ? 'p-1.5' : ''
+                                                } object-cover`}
+                                            height={70}
+                                            width={70}
+                                        />
+                                    </PopoverTrigger>
+                                    <PopoverContent>
+                                        <p>{item.alt}</p>
+                                    </PopoverContent>
+                                </div>
+                            </Popover>
+                        ))}
+                    </div>
                 </div>
             </div>
             <DownArrow />
