@@ -27,6 +27,11 @@ export default async function Page() {
 
     return (
         <div className="flex h-full w-full flex-col items-center p-2 pt-20 text-white">
+            <div className="flex w-full max-w-5xl">
+                <span className="text-[10vw] font-bold sm:text-6xl">
+                    BLOG
+                </span>
+            </div>
             {posts.map((post: Post) => {
                 return (
                     <Link
