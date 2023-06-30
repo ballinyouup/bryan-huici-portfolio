@@ -39,7 +39,7 @@ export default async function Projects() {
                             className="flex h-fit w-full max-w-5xl flex-col items-center justify-center gap-4 rounded-xl bg-accent p-4 lg:flex-row lg:items-start lg:justify-start"
                             key={project.slug}
                         >
-                            <div className="h-80 w-full overflow-hidden rounded-xl">
+                            <div className="h-fit sm:h-80 w-full overflow-hidden rounded-xl">
                                 {project.image ? (
                                     <Image
                                         src={urlForImage(project.image)
@@ -51,6 +51,7 @@ export default async function Projects() {
                                         alt={project.image.alt as string}
                                         width={1024}
                                         height={1024}
+                                        className="overflow-hidden rounded-xl"
                                     />
                                 ) : null}
                             </div>
