@@ -1,11 +1,11 @@
-import { client } from '../../../../../../sanity/lib/client.mts'
+import { client } from '~/lib/client.mts'
 import PortableTextComponent from '@/components/ui/portable-text-component'
 import { Metadata } from 'next'
 import { format } from 'date-fns'
 import { enUS } from 'date-fns/locale'
 import { notFound } from 'next/navigation';
 import Image from 'next/image'
-import { urlForImage } from '../../../../../../sanity/lib/image'
+import { urlForImage } from '~/lib/image'
 import { Badge } from '@/components/ui/badge';
 import type { Image as SanityImage } from 'sanity';
 type Props = {
