@@ -1,10 +1,10 @@
 import { ImageResponse } from 'next/server'
-import { client } from '../../../../../sanity/lib/client.mts'
+import { client } from '../../../../../../sanity/lib/client.mts'
 // Route segment config
 // export const runtime = 'edge'
 
 // Image metadata
-export const alt = 'Bryan Huici Blog Post Image'
+export const alt = 'Bryan Huici Project Image'
 export const size = {
     width: 1200,
     height: 630,
@@ -14,7 +14,7 @@ export const contentType = 'image/png'
 
 // Image generation
 export default async function Image({ params }: { params: { slug: string } }) {
-    const post = await client.fetch(
+    const project = await client.fetch(
         `*[slug.current == "${params.slug}"]{title}`
     )
     return new ImageResponse(
@@ -34,7 +34,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
                     textTransform: 'uppercase',
                 }}
             >
-                {post[0].title}
+                {project[0].title}
             </div>
         ),
         // ImageResponse options
