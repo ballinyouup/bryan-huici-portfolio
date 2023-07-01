@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { client } from '../../../../sanity/lib/client.mts';
+import { client } from '../../../../../sanity/lib/client.mts';
 import { format } from 'date-fns';
 import { enUS } from 'date-fns/locale';
 import Image from 'next/image';
-import { urlForImage } from '../../../../sanity/lib/image';
+import { urlForImage } from '../../../../../sanity/lib/image';
 import type { Image as SanityImage } from 'sanity';
 import { Badge } from '@/components/ui/badge';
 interface Post {

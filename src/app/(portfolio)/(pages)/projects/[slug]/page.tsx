@@ -1,4 +1,4 @@
-import { client } from '../../../../../sanity/lib/client.mts';
+import { client } from '../../../../../../sanity/lib/client.mts';
 import PortableTextComponent from '@/components/ui/portable-text-component';
 import { Metadata } from 'next';
 import { format } from 'date-fns';
