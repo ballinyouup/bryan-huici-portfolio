@@ -1,5 +1,5 @@
 'use client'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export function GradualSpacing() {
     const text = 'Bryan Huici'
@@ -8,6 +8,7 @@ export function GradualSpacing() {
         visible: { opacity: 1, x: 0 },
     }
     return (
+        <AnimatePresence>
         <div className="z-30 -ml-1 grid w-full grid-flow-row md:grid-flow-col">
             <div className="flex">
                 {text
@@ -69,5 +70,6 @@ export function GradualSpacing() {
                     })}
             </div>
         </div>
+        </AnimatePresence>
     )
 }
