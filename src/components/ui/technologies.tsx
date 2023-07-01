@@ -99,7 +99,7 @@ const Technologies = () => {
     //If I need to manipulate the image, div above tooltiptrigger
     //[&>:first-child]:hover:!grayscale-0
     return (
-        <div className="relative z-20 flex h-full min-h-phone w-full items-start justify-center pb-40 sm:h-desktop sm:pb-0">
+        <div className="relative z-20 flex h-full min-h-phone w-full items-start justify-center pb-40 sm:h-desktop sm:pb-0 snap-start">
             <div className="flex w-fit flex-col items-center justify-center gap-2 p-4 text-center">
                 <div className="flex flex-col">
                 <h3 className="text-[10vw] md:text-6xl">TECHNOLOGIES</h3>

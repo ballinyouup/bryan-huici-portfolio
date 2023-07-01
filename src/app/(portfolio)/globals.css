@@ -6,6 +6,8 @@ html, body{
   height: 100%;
   width: 100%;
   min-height: -webkit-fill-available;
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
 }
 
 @layer base {

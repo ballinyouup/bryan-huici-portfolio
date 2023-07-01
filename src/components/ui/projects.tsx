@@ -26,7 +26,7 @@ export default async function Projects() {
 		"author": author->name, "slug": slug.current, "description": description, title, "image": mainImage, "alt": mainImage.alt, link, github, "keywords": keywords[]->title
 	  }`)
     return (
-        <div className="flex h-full w-full flex-col items-center gap-8 p-8 lg:h-desktop lg:p-12">
+        <div className="flex h-full w-full flex-col items-center gap-8 p-8 lg:h-desktop lg:p-12 snap-start">
             <div className="flex w-full max-w-5xl">
                 <span className="text-[10vw] font-bold sm:text-6xl">
                     PROJECTS
