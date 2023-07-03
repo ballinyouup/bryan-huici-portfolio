@@ -21,7 +21,7 @@ interface Post {
     keywords: string[];
 }
 
-export async function BlogPosts() {
+async function BlogPosts() {
     //await wait(5000)
     const posts =
         await client.fetch(`*[_type == "post"]| order(publishedAt desc){
@@ -95,7 +95,7 @@ export async function BlogPosts() {
     );
 }
 
-export function BlogLoading() {
+function BlogLoading() {
     return (
         <div className="flex w-full flex-col items-center text-white gap-4">
             <div className="flex h-fit w-full max-w-5xl flex-col items-center justify-center gap-4 p-4 bg-accent/40 sm:flex-row sm:items-start sm:justify-start rounded-xl">
