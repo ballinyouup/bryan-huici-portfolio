@@ -6,6 +6,7 @@ import NavButton from '@/components/ui/nav-button'
 import { GithubIcon, Globe, ArrowRightToLine } from 'lucide-react'
 import { Badge } from '@/components/ui/badge';
 import PortableTextComponent from './portable-text-component'
+import ModalImage from './modal-image';
 //import { wait } from '@/lib/utils';
 
 interface Projects {
@@ -39,22 +40,11 @@ export default async function Projects() {
                             className="flex h-fit w-full max-w-5xl flex-col items-center justify-center gap-4 rounded-xl bg-accent p-4 lg:flex-row lg:items-start lg:justify-start snap-start"
                             key={project.slug}
                         >
-                            <div className="h-fit sm:h-80 w-full overflow-hidden rounded-xl">
+                            
                                 {project.image ? (
-                                    <Image
-                                        src={urlForImage(project.image)
-                                            .width(1600)
-                                            .height(1600)
-                                            .fit('max')
-                                            .auto('format')
-                                            .url()}
-                                        alt={project.image.alt as string}
-                                        width={1024}
-                                        height={1024}
-                                        className="overflow-hidden rounded-xl"
-                                    />
+                                    <ModalImage image={project.image} alt={project.alt as string}/>
                                 ) : null}
-                            </div>
+                           
                             <div className="flex w-full flex-col place-content-between gap-2 rounded-xl bg-secondary/40 p-4 lg:h-full lg:w-1/2">
                                 <div className="flex w-full flex-col items-start gap-4 lg:h-full">
                                     <div className="flex w-full flex-col">
