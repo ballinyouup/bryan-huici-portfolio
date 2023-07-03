@@ -22,7 +22,7 @@ interface Post {
 }
 
 export async function BlogPosts() {
-    await wait(5000)
+    //await wait(5000)
     const posts =
         await client.fetch(`*[_type == "post"]| order(publishedAt desc){
             "author": author->name,
