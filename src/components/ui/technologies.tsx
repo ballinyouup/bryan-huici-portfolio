@@ -114,7 +114,7 @@ const Technologies = () => {
                     <TooltipProvider>
                         {tech.map((item, index) => (
                             <Tooltip delayDuration={0} key={item.src}>
-                                <SnapContainer index={index}>
+                                <SnapContainer index={index} key={item.src}>
                                     <div className="z-20 h-24 w-24 overflow-hidden rounded-2xl border-4 border-transparent transition-transform hover:z-10 hover:-translate-y-2 hover:scale-105 hover:border-teal-400 hover:shadow-xl hover:shadow-slate-700">
                                         <TooltipTrigger className="relative flex h-full w-full cursor-default items-center justify-center overflow-hidden">
                                             <Image
@@ -144,7 +144,7 @@ const Technologies = () => {
                     <div className="flex w-full flex-wrap items-center justify-center gap-1.5">
                         {tech.map((item, index) => (
                             <Popover key={item.src}>
-                                <SnapContainer index={index}>
+                                <SnapContainer index={index} key={item.alt}>
                                     <div className="z-20 h-20 w-20 overflow-hidden rounded-2xl">
                                         <PopoverTrigger className="relative flex h-full w-full items-center justify-center">
                                             <Image

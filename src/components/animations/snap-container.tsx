@@ -1,13 +1,15 @@
 'use client'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import { useRef, useId } from 'react'
+import { useRef } from 'react'
 
 export default function SnapContainer({
     children,
     index = 0,
+    key
 }: {
     children?: React.ReactNode
     index?: number
+    key: string
 }) {
     const ref = useRef(null)
     const isInView = useInView(ref)
@@ -27,7 +29,7 @@ export default function SnapContainer({
                 }}
                 variants={variants}
                 ref={ref}
-                key={useId()}
+                key={key}
             >
                 {children}
             </motion.div>
