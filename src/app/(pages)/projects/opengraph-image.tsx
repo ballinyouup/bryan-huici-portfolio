@@ -47,12 +47,12 @@ export default async function Image() {
 
                 <span
                     style={{
-                        fontSize: 200,
+                        fontSize: 100,
                         textTransform: 'uppercase',
                         fontWeight: 900,
                         color: 'white',
                         position: "absolute",
-                        top: 150,
+                        top: 96,
                         zIndex: 1,
                         width: "50%",
                         height: "400px",
