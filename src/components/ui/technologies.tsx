@@ -141,10 +141,10 @@ const Technologies = () => {
 
                 {/** MOBILE TECH */}
                 <div className="flex flex-col gap-2 sm:hidden">
-                    <SnapContainer>
-                        <div className="flex w-full flex-wrap items-center justify-center gap-1.5">
-                            {tech.map((item) => (
-                                <Popover key={item.src}>
+                    <div className="flex w-full flex-wrap items-center justify-center gap-1.5">
+                        {tech.map((item, index) => (
+                            <Popover key={item.src}>
+                                <SnapContainer index={index}>
                                     <div className="z-20 h-20 w-20 overflow-hidden rounded-2xl">
                                         <PopoverTrigger className="relative flex h-full w-full items-center justify-center">
                                             <Image
@@ -163,10 +163,10 @@ const Technologies = () => {
                                             <p>{item.alt}</p>
                                         </PopoverContent>
                                     </div>
-                                </Popover>
-                            ))}
-                        </div>
-                    </SnapContainer>
+                                </SnapContainer>
+                            </Popover>
+                        ))}
+                    </div>
                 </div>
             </div>
             <DownArrow />
