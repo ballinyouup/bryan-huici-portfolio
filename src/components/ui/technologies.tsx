@@ -6,9 +6,9 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from './tooltip'
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils'
 import { Popover, PopoverContent, PopoverTrigger } from './popover'
-import SnapContainer from '../animations/snap-container';
+import SnapContainer from '../animations/snap-container'
 const Technologies = () => {
     const tech = [
         {
@@ -111,11 +111,10 @@ const Technologies = () => {
                 </div>
 
                 <div className="hidden w-full max-w-3xl flex-wrap items-center justify-center gap-3 p-8 sm:flex">
-
-                        <TooltipProvider>
-                            {tech.map((item, index) => (
+                    <TooltipProvider>
+                        {tech.map((item, index) => (
+                            <Tooltip delayDuration={0} key={item.src}>
                                 <SnapContainer index={index}>
-                                <Tooltip delayDuration={0} key={item.src}>
                                     <div className="z-20 h-24 w-24 overflow-hidden rounded-2xl border-4 border-transparent transition-transform hover:z-10 hover:-translate-y-2 hover:scale-105 hover:border-teal-400 hover:shadow-xl hover:shadow-slate-700">
                                         <TooltipTrigger className="relative flex h-full w-full cursor-default items-center justify-center overflow-hidden">
                                             <Image
@@ -134,11 +133,10 @@ const Technologies = () => {
                                             <p>{item.alt}</p>
                                         </TooltipContent>
                                     </div>
-                                </Tooltip>
                                 </SnapContainer>
-                            ))}
-                        </TooltipProvider>
-
+                            </Tooltip>
+                        ))}
+                    </TooltipProvider>
                 </div>
 
                 {/** MOBILE TECH */}
