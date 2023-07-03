@@ -109,11 +109,12 @@ const Technologies = () => {
                         projects
                     </span>
                 </div>
-                <SnapContainer>
+
                 <div className="hidden w-full max-w-3xl flex-wrap items-center justify-center gap-3 p-8 sm:flex">
 
                         <TooltipProvider>
-                            {tech.map((item) => (
+                            {tech.map((item, index) => (
+                                <SnapContainer index={index}>
                                 <Tooltip delayDuration={0} key={item.src}>
                                     <div className="z-20 h-24 w-24 overflow-hidden rounded-2xl border-4 border-transparent transition-transform hover:z-10 hover:-translate-y-2 hover:scale-105 hover:border-teal-400 hover:shadow-xl hover:shadow-slate-700">
                                         <TooltipTrigger className="relative flex h-full w-full cursor-default items-center justify-center overflow-hidden">
@@ -134,11 +135,12 @@ const Technologies = () => {
                                         </TooltipContent>
                                     </div>
                                 </Tooltip>
+                                </SnapContainer>
                             ))}
                         </TooltipProvider>
 
                 </div>
-                </SnapContainer>
+
                 {/** MOBILE TECH */}
                 <div className="flex flex-col gap-2 sm:hidden">
                     <SnapContainer>

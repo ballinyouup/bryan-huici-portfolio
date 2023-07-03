@@ -3,9 +3,10 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useId } from 'react';
 
 export default function SnapContainer({
-    children,
+    children, index = 0
 }: {
     children?: React.ReactNode;
+        index?: number;
 }) {
     const ref = useRef(null);
     const isInView = useInView(ref);
@@ -23,8 +24,9 @@ export default function SnapContainer({
                 }
                 exit={"hidden"}
                 transition={{
-                    duration: 1.5,
+                    duration: 0.1,
                     ease: 'easeOut',
+                    delay: index * 0.05
                 }}
                 variants={variants}
                 ref={ref}
