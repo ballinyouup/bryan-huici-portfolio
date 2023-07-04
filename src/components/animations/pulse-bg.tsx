@@ -14,7 +14,7 @@ export default function PulseBg({reverse = false}: {reverse: boolean}) {
                 exit={'exit'}
                 transition={{ ease: 'linear', duration: 8, repeat: Infinity }}
                 variants={variants}
-                className='w-full bg-gradient-to-r from-background via-secondary to-background h-full z-20 absolute'
+                className={reverse ? 'w-full bg-gradient-to-l from-background via-secondary to-background h-full z-20 absolute' : 'w-full bg-gradient-to-r from-background via-secondary to-background h-full z-20 absolute'}
             />
             <div className="overlay"></div>
             <div className="overlay-2 rotate-90"></div>
