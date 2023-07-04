@@ -5,6 +5,9 @@ export default function DownArrow({ section }: { section: number; }) {
     return (
 
         <motion.button
+            initial={{
+                x: -36
+            }}
                 animate={{
                     y: [0, -10, 0],
                 }}
@@ -13,7 +16,7 @@ export default function DownArrow({ section }: { section: number; }) {
                     repeat: Infinity,
                     ease: 'linear',
                 }}
-            className="absolute bottom-20 left-1/2 -translate-x-6 z-40 border-2 border-transparent hover:border-white rounded-xl transition-all duration-300"
+            className="absolute bottom-20 left-1/2 z-40 border-2 border-transparent hover:border-white rounded-xl transition-all duration-300"
             onClick={() => scrollTo({ top: 960 * section, behavior: "smooth" })}
             >
                 <ChevronDown

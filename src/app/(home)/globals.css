@@ -12,8 +12,8 @@ html, body{
 
 .overlay {    
   background: linear-gradient(
-    rgb(133, 133, 133),
-    rgb(133, 133, 133) 1px,
+    hsl(var(--secondary)),
+    hsl(var(--secondary)) 1px,
     transparent 3px,
     transparent 9px
   );
@@ -28,8 +28,8 @@ html, body{
 
 .overlay-2 {    
   background: linear-gradient(
-    rgb(133, 133, 133),
-    rgb(133, 133, 133) 1px,
+    hsl(var(--secondary)),
+    hsl(var(--secondary)) 1px,
     transparent 3px,
     transparent 9px
   );
