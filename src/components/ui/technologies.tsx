@@ -117,7 +117,7 @@ const Technologies = () => {
                         {tech.map((item, index) => (
                             <Tooltip delayDuration={0} key={item.src}>
                                 <SnapContainer index={index} key={item.src}>
-                                    <div className="z-20 h-24 w-24 overflow-hidden rounded-2xl border-4 border-transparent transition-transform hover:z-10 hover:-translate-y-2 hover:scale-105 hover:border-teal-400 hover:shadow-xl hover:shadow-slate-700">
+                                    <div className="z-20 h-24 w-24 overflow-hidden rounded-2xl transition-transform hover:z-10 hover:-translate-y-2 hover:scale-105 hover:shadow-xl hover:shadow-slate-700">
                                         <TooltipTrigger className="relative flex h-full w-full cursor-default items-center justify-center overflow-hidden">
                                             <Image
                                                 src={item.src}
