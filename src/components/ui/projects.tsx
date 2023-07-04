@@ -5,6 +5,7 @@ import { GithubIcon, Globe, ArrowRightToLine } from 'lucide-react'
 import { Badge } from '@/components/ui/badge';
 import PortableTextComponent from './portable-text-component'
 import ModalImage from './modal-image';
+import UpArrow from "./up-arrow"
 //import { wait } from '@/lib/utils';
 
 interface Projects {
@@ -25,7 +26,7 @@ export default async function Projects() {
 		"author": author->name, "slug": slug.current, "description": description, title, "image": mainImage, "alt": mainImage.alt, link, github, "keywords": keywords[]->title
 	  }`)
     return (
-        <div className="flex h-full w-full flex-col items-center gap-8 p-8 lg:h-desktop lg:p-12 snap-start">
+        <div className="flex h-full w-full flex-col items-center gap-8 p-8 lg:p-12 snap-start">
             <div className="flex w-full max-w-5xl z-30">
                 <span className="text-[10vw] font-bold sm:text-6xl">
                     PROJECTS
@@ -128,9 +129,12 @@ export default async function Projects() {
                     )
                 })}
             </div>
+
             <NavButton href="/projects" name="See More" variant={'default'} className="w-full">
                 <ArrowRightToLine className="h-5 w-5" />
             </NavButton>
+            <UpArrow />
+
         </div>
     )
 }

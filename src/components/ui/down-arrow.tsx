@@ -1,10 +1,10 @@
 'use client';
-import { ChevronDown } from 'lucide-react'
-export default function DownArrow({ section }: { section: number }) {
+import { ChevronDown } from 'lucide-react';
+export default function DownArrow({ section }: { section: number; }) {
     return (
-        <>
+        <div className="relative w-fit animate-bounce z-40 rounded-xl border-2 border-transparent bg-accent transition-transform duration-1000 hover:border-white">
             <button
-                className="absolute bottom-20 left-1/2 z-40 hidden !-translate-x-1/2 animate-bounce rounded-xl border-2 border-transparent bg-accent transition-transform duration-1000 hover:border-white md:flex"
+                className='hidden md:flex'
                 onClick={() =>
                     scrollTo({ top: 960 * section, behavior: 'smooth' })
                 }
@@ -15,7 +15,7 @@ export default function DownArrow({ section }: { section: number }) {
                 <ChevronDown className="h-10 w-10" strokeWidth={'4px'} />
             </button>
             <button
-                className="absolute bottom-20 left-1/2 z-40 flex !-translate-x-1/2 animate-bounce rounded-xl border-2 border-transparent bg-accent transition-transform duration-1000 hover:border-white md:hidden"
+                className='flex md:hidden'
                 onClick={() =>
                     scrollTo({ top: 704 * section, behavior: 'smooth' })
                 }
@@ -25,6 +25,6 @@ export default function DownArrow({ section }: { section: number }) {
                 </span>
                 <ChevronDown className="h-10 w-10" strokeWidth={'4px'} />
             </button>
-        </>
+        </div>
     )
 }
