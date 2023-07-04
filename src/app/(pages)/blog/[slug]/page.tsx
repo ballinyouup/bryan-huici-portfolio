@@ -8,6 +8,7 @@ import Image from 'next/image'
 import { urlForImage } from '~/lib/image'
 import { Badge } from '@/components/ui/badge';
 import type { Image as SanityImage } from 'sanity';
+import { wait } from '@/lib/utils'
 type Props = {
     params: { slug: string }
 }
@@ -37,6 +38,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
 }
 export default async function Page({ params }: { params: { slug: string } }) {
+    
+    await wait(5000);
+    
     const post = (await client.fetch(`*[slug.current == "${params.slug}"]{
 		"author": author->name,
 		  body, title, publishedAt, "image": mainImage, "keywords": keywords[]->title

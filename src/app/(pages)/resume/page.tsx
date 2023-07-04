@@ -1,6 +1,50 @@
-import ProjectsLoading from "@/components/ui/projects-loading";
-import Projects from "@/components/ui/projects";
-import { Suspense } from "react";
-export default function Page() {
-    return <Suspense fallback={<ProjectsLoading />}><Projects /></Suspense>;
+import { client } from '~/lib/client.mts';
+import PortableTextComponent from '@/components/ui/portable-text-component';
+import { Metadata } from 'next';
+import { format } from 'date-fns';
+import { enUS } from 'date-fns/locale';
+import { notFound } from 'next/navigation';
+import { Badge } from '@/components/ui/badge';
+import { wait } from '@/lib/utils';
+
+interface Resume {
+    title: string;
+    publishedAt: string;
+    keywords: string[];
+    body: any;
+}
+
+export default async function Page() {
+    await wait(5000);
+    const resume = await client.fetch(`*[_type == "resume"]{body,title, "keywords": keywords[]->title}`) as Resume[];
+
+    if (resume.length === 0 || !resume[0]) {
+        return notFound();
+    }
+    return (
+        <div className="flex min-h-full w-full items-start justify-center p-4 pt-20">
+            <div className="flex w-full max-w-5xl flex-col items-center justify-center">
+                <div className="flex w-full flex-col py-4">
+                    <h1 className="text-5xl font-bold capitalize">
+                        {resume[0].title}
+                    </h1>
+                    {resume[0].keywords ? (
+                        <div className="flex gap-2">
+                            {resume[0].keywords
+                                .slice(0, 4)
+                                .map((keyword: string) => {
+                                    return (
+                                        <Badge key={keyword}>{keyword}</Badge>
+                                    );
+                                })}
+                        </div>
+                    ) : null}
+                    <PortableTextComponent
+                        value={resume[0].body ?? {}}
+                        onMissingComponent={false}
+                    />
+                </div>
+            </div>
+        </div>
+    );
 }

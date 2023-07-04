@@ -6,5 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function wait(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+  if (process.env.LOADING_STATES) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
 }
