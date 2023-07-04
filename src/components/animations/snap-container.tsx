@@ -23,9 +23,9 @@ export default function SnapContainer({
                 animate={isInView ? 'visible' : 'hidden'}
                 exit={'hidden'}
                 transition={{
-                    duration: 0.1,
+                    duration: isInView ? 0.15 : 0,
                     ease: 'easeOut',
-                    delay: index * 0.05,
+                    delay: isInView ? (index * 0.075) : 0,
                 }}
                 variants={variants}
                 ref={ref}

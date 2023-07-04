@@ -102,7 +102,7 @@ const Technologies = () => {
     //[&>:first-child]:hover:!grayscale-0
     return (
         <div className="relative flex h-full min-h-phone w-full snap-start items-start justify-center pb-40 sm:h-desktop sm:pb-0">
-            <div className="flex flex-col w-fit h-full items-center justify-center gap-8">
+            <div className="flex flex-col w-fit h-fit items-center justify-center gap-8">
                 <div className="flex w-fit flex-col items-center justify-center gap-2 p-4 text-center z-40">
                 <div className="flex flex-col">
                     <h3 className="text-[10vw] md:text-6xl">TECHNOLOGIES</h3>
