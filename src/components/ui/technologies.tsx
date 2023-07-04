@@ -169,7 +169,7 @@ const Technologies = () => {
                     </div>
                 </div>
             </div>
-            <DownArrow />
+            <DownArrow section={2} />
         </div>
     )
 }

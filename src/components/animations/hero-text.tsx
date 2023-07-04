@@ -30,7 +30,7 @@ export function GradualSpacing() {
                         )
                     })}
             </div>
-            <div className="hidden sm:flex">
+                <div className="hidden md:flex">
                 <motion.h3
                     key={text.indexOf(' ')}
                     initial="hidden"

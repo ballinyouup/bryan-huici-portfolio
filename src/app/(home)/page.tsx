@@ -5,7 +5,7 @@ import { Suspense } from 'react'
 import ProjectsLoading from '@/components/ui/projects-loading'
 export default function Page() {
     return (
-        <main>
+        <main className='overflow-hidden'>
             <Hero />
             <Technologies />
             <Suspense fallback={<ProjectsLoading />}>

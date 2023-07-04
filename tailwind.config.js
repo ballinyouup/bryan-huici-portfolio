@@ -69,7 +69,8 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "pulse": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        "pulse-2": "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "pulse-2": "pulse 2s cubic-bezier(0.4, 0, 0.6, 0.5) infinite",
+        "ping-2": "ping 2s cubic-bezier(0, 0, 0.2, 0.5) infinite"
       },
       height: {
         'desktop': '60rem',
