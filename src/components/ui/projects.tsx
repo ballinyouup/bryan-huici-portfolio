@@ -1,6 +1,4 @@
-import Image from 'next/image'
-import { client } from '../../../sanity/lib/client.mts'
-import { urlForImage } from '../../../sanity/lib/image'
+import { client } from '../../../sanity/lib/client.mts';
 import type { Image as SanityImage } from 'sanity'
 import NavButton from '@/components/ui/nav-button'
 import { GithubIcon, Globe, ArrowRightToLine } from 'lucide-react'
@@ -34,13 +32,17 @@ export default async function Projects() {
                 </span>
             </div>
             <div className="flex w-full flex-col items-center gap-10 text-white">
+
                 {projects.slice(0, 2).map((project) => {
                     return (
                         <div
-                            className="flex h-fit w-full max-w-5xl flex-col items-center justify-center gap-4 rounded-xl bg-accent p-4 lg:flex-row lg:items-start lg:justify-start snap-start z-30"
+                            className="flex h-fit w-full max-w-5xl flex-col items-center justify-center gap-4 rounded-xl bg-accent p-4 lg:flex-row lg:items-start lg:justify-start snap-start z-30 relative"
                             key={project.slug}
                         >
-                            
+                            <span className="absolute flex left-2 top-2 h-5 w-5 !z-50">
+                                <span className="animate-ping-2 absolute inline-flex h-full w-full rounded-full bg-sky-400"></span>
+                                <span className="absolute inline-flex h-full w-full rounded-full bg-sky-400"></span>
+                            </span>
                                 {project.image ? (
                                     <ModalImage image={project.image} alt={project.alt as string}/>
                                 ) : null}
