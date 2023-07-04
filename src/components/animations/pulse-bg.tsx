@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export default function PulseBg() {
     const variants = {
         hidden: { opacity: 0 },
-        visible: { opacity: [0.5, 1, 0.5] }
+        visible: { opacity: [0, 0.15, 0] }
     };
     return (
         <motion.div

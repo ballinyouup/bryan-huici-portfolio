@@ -12,8 +12,8 @@ html, body{
 
 .overlay {    
   background: linear-gradient(
-    rgba(223, 223, 223, 0.05),
-    rgba(223,223,223,0.05) 1px,
+    rgb(133, 133, 133),
+    rgb(133, 133, 133) 1px,
     transparent 3px,
     transparent 9px
   );
@@ -28,8 +28,8 @@ html, body{
 
 .overlay-2 {    
   background: linear-gradient(
-    rgba(223, 223, 223, 0.05),
-    rgba(223,223,223,0.05) 1px,
+    rgb(133, 133, 133),
+    rgb(133, 133, 133) 1px,
     transparent 3px,
     transparent 9px
   );

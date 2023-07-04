@@ -4,7 +4,7 @@ import PulseBg from '../animations/pulse-bg';
 export default function Hero() {
     return (
         <div className="relative flex h-phone snap-start flex-col items-center justify-center overflow-x-clip md:h-desktop">
-            <div className="z-30 flex h-fit flex-col items-start justify-center gap-4 p-8 sm:p-6 md:p-4">
+            <div className="z-30 flex h-fit flex-col items-start justify-center gap-4 p-8 sm:p-6 md:p-4 shadow-inner shadow-black bg-secondary/90">
                 <GradualSpacing />
                 <p className="grid w-fit grid-flow-row text-3xl font-semibold md:grid-flow-col">
                     <span>Front-End</span>
