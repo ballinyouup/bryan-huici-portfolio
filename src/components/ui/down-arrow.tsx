@@ -1,3 +1,4 @@
+'use client';
 import { ChevronDown } from 'lucide-react'
 export default function DownArrow({ section }: { section: number }) {
     return (
