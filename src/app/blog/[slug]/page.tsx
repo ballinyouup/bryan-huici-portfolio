@@ -82,7 +82,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                         )}
                     </p>
                     {post[0].keywords ? (
-                        <div className="flex gap-2">
+                        <div className="flex gap-2 pb-12">
                             {post[0].keywords
                                 .slice(0, 4)
                                 .map((keyword: string) => {
