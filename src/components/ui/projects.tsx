@@ -37,7 +37,7 @@ export default async function Projects() {
                 {projects.slice(0, 2).map((project) => {
                     return (
                         <div
-                            className="flex h-fit w-full max-w-5xl flex-col items-center justify-center gap-4 rounded-xl bg-accent p-4 lg:flex-row lg:items-start lg:justify-start snap-start z-30 relative"
+                            className="flex h-fit w-full max-w-5xl flex-col items-center justify-center gap-4 rounded-xl bg-accent p-4 lg:flex-row lg:items-start lg:justify-start z-30 relative"
                             key={project.slug}
                         >
                             <span className="absolute flex left-2 top-2 h-5 w-5 !z-50">
