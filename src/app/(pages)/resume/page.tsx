@@ -1,10 +1,7 @@
 import { client } from '~/lib/client.mts';
 import PortableTextComponent from '@/components/ui/portable-text-component';
 import { Metadata } from 'next';
-import { format } from 'date-fns';
-import { enUS } from 'date-fns/locale';
 import { notFound } from 'next/navigation';
-import { Badge } from '@/components/ui/badge';
 import { wait } from '@/lib/utils';
 
 interface Resume {
@@ -28,17 +25,6 @@ export default async function Page() {
                     <h1 className="text-5xl font-bold capitalize">
                         {resume[0].title}
                     </h1>
-                    {resume[0].keywords ? (
-                        <div className="flex gap-2">
-                            {resume[0].keywords
-                                .slice(0, 4)
-                                .map((keyword: string) => {
-                                    return (
-                                        <Badge key={keyword}>{keyword}</Badge>
-                                    );
-                                })}
-                        </div>
-                    ) : null}
                     <PortableTextComponent
                         value={resume[0].body ?? {}}
                         onMissingComponent={false}

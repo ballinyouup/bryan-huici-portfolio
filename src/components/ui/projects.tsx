@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import PortableTextComponent from './portable-text-component'
 import ModalImage from './modal-image';
 import UpArrow from "./up-arrow"
-//import { wait } from '@/lib/utils';
+import { wait } from '@/lib/utils';
 
 interface Projects {
     title?: string
@@ -21,7 +21,7 @@ interface Projects {
 }
 
 export default async function Projects() {
-    // await wait(5000)
+    await wait(5000)
     const projects: Projects[] = await client.fetch(`*[_type == "projects"]{
 		"author": author->name, "slug": slug.current, "description": description, title, "image": mainImage, "alt": mainImage.alt, link, github, "keywords": keywords[]->title
 	  }`)
