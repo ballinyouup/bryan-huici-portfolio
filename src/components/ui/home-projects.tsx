@@ -20,7 +20,7 @@ interface Projects {
     keywords?: string[]
 }
 
-export default async function Projects() {
+export default async function HomeProjects() {
     await wait(5000)
     const projects: Projects[] = await client.fetch(`*[_type == "projects"]{
 		"author": author->name, "slug": slug.current, "description": description, title, "image": mainImage, "alt": mainImage.alt, link, github, "keywords": keywords[]->title

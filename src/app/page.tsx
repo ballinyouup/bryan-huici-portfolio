@@ -1,6 +1,6 @@
 import Hero from '@/components/ui/hero'
 import Technologies from '@/components/ui/technologies'
-import Projects from '@/components/ui/projects'
+import HomeProjects from '@/components/ui/home-projects';
 import { Suspense } from 'react'
 import ProjectsLoading from '@/components/ui/projects-loading'
 export default function Page() {
@@ -9,7 +9,7 @@ export default function Page() {
             <Hero />
             <Technologies />
             <Suspense fallback={<ProjectsLoading />}>
-                <Projects />
+                <HomeProjects />
             </Suspense>
         </main>
     )
