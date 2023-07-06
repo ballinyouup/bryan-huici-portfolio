@@ -8,7 +8,7 @@ import {
     AlertDialogHeader,
     AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
-import { MousePointer } from 'lucide-react';
+import { Maximize } from 'lucide-react';
 import { AspectRatio } from './aspect-ratio';
 export default function ModalImage({
     image,
@@ -23,7 +23,7 @@ export default function ModalImage({
                 <AlertDialogTrigger className="relative z-10 h-full w-full cursor-pointer md:h-80 [&>div]:hover:opacity-100 [&>:nth-child(2)]:hover:brightness-[25%]">
                     <div className="absolute left-1/2 top-1/2 z-20 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-white opacity-0 transition-all duration-300">
                         <span className="text-3xl font-bold">Expand</span>
-                        <MousePointer className="h-8 w-8" fill="#ffffff" />
+                        <Maximize className="h-8 w-8" />
                     </div>
                     <AspectRatio ratio={16 / 9} className='h-full'>
                     <Image

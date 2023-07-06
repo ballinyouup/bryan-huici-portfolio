@@ -48,7 +48,7 @@ export default async function HomeProjects() {
                                     <ModalImage image={project.image} alt={project.alt as string}/>
                                 ) : null}
                            
-                            <div className="flex w-full flex-col place-content-between gap-2 rounded-xl bg-secondary/40 p-4 lg:h-full lg:w-1/2">
+                            <div className="flex w-full flex-col place-content-between gap-2 rounded-xl bg-secondary/40 p-4 lg:h-80 lg:w-1/2">
                                 <div className="flex w-full flex-col items-start gap-4 lg:h-full">
                                     <div className="flex w-full flex-col">
                                         <h4 className="font-bold uppercase">
