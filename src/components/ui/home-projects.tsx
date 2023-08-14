@@ -1,30 +1,30 @@
 import { client } from '../../../sanity/lib/client.mts';
-import type { Image as SanityImage } from 'sanity'
-import NavButton from '@/components/ui/nav-button'
-import { GithubIcon, Globe, ArrowRightToLine } from 'lucide-react'
+import type { Image as SanityImage } from 'sanity';
+import NavButton from '@/components/ui/nav-button';
+import { GithubIcon, Globe, ArrowRightToLine } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import PortableTextComponent from './portable-text-component'
+import PortableTextComponent from './portable-text-component';
 import ModalImage from './modal-image';
-import UpArrow from "./up-arrow"
+import UpArrow from "./up-arrow";
 import { wait } from '@/lib/utils';
 
 interface Projects {
-    title?: string
-    image?: SanityImage
-    author?: string
-    slug?: string
-    alt?: string
-    description?: string
-    link?: string
-    github?: string
-    keywords?: string[]
+    title?: string;
+    image?: SanityImage;
+    author?: string;
+    slug?: string;
+    alt?: string;
+    description?: string;
+    link?: string;
+    github?: string;
+    keywords?: string[];
 }
 
 export default async function HomeProjects() {
-    await wait(5000)
+    await wait(5000);
     const projects: Projects[] = await client.fetch(`*[_type == "projects"]{
 		"author": author->name, "slug": slug.current, "description": description, title, "image": mainImage, "alt": mainImage.alt, link, github, "keywords": keywords[]->title
-	  }`)
+	  }`);
     return (
         <div className="flex h-full w-full flex-col items-center gap-8 p-8 lg:p-12 snap-start">
             <div className="flex w-full max-w-5xl z-30">
@@ -44,10 +44,10 @@ export default async function HomeProjects() {
                                 <span className="animate-ping-2 absolute inline-flex h-full w-full rounded-full bg-sky-400"></span>
                                 <span className="absolute inline-flex h-full w-full rounded-full bg-sky-400"></span>
                             </span>
-                                {project.image ? (
-                                    <ModalImage image={project.image} alt={project.alt as string}/>
-                                ) : null}
-                           
+                            {project.image ? (
+                                <ModalImage image={project.image} alt={project.alt as string} />
+                            ) : null}
+
                             <div className="flex w-full flex-col place-content-between gap-2 rounded-xl bg-secondary/40 p-4 lg:h-80 lg:w-1/2">
                                 <div className="flex w-full flex-col items-start gap-4 lg:h-full">
                                     <div className="flex w-full flex-col">
@@ -78,7 +78,7 @@ export default async function HomeProjects() {
                                         key={project.description}
                                     />
                                 </div>
-                                <div className="hidden flex-row flex-wrap items-start gap-2 whitespace-nowrap lg:flex">
+                                <div className="hidden flex-row flex-wrap items-start whitespace-nowrap lg:flex">
                                     <NavButton
                                         href={project.link ?? ''}
                                         name="Site"
@@ -87,13 +87,13 @@ export default async function HomeProjects() {
                                     </NavButton>
                                     <NavButton
                                         href={project.github ?? ''}
-                                        name="Github"
+                                        name="GH"
                                     >
                                         <GithubIcon className="h-5 w-5" />
                                     </NavButton>
                                     <NavButton
                                         href={`/projects/${project.slug}` ?? ''}
-                                        name="Learn More"
+                                        name="More"
                                     >
                                         <ArrowRightToLine className="h-5 w-5" />
                                     </NavButton>
@@ -126,7 +126,7 @@ export default async function HomeProjects() {
                                 </div>
                             </div>
                         </div>
-                    )
+                    );
                 })}
             </div>
 
@@ -136,5 +136,5 @@ export default async function HomeProjects() {
             <UpArrow />
 
         </div>
-    )
+    );
 }
