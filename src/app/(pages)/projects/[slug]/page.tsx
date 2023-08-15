@@ -45,7 +45,6 @@ export default async function Page({ params }: { params: { slug: string; }; }) {
     if (project.length === 0 || !project[0]) {
         return notFound();
     }
-    console.log(project[0].body);
     return (
         <div className="flex min-h-full w-full items-start justify-center p-4 pt-20">
             <div className="flex w-full max-w-5xl flex-col items-center justify-center">
