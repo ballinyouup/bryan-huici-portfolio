@@ -1,31 +1,31 @@
-import ProjectsLoading from '@/components/ui/projects-loading'
+import ProjectsLoading from '@/components/ui/projects-loading';
 import { Suspense } from 'react';
-import type { Image as SanityImage } from 'sanity'
-import { client } from '~/lib/client.mts'
-import Image from 'next/image'
-import { urlForImage } from '~/lib/image'
-import { GithubIcon, Globe, ArrowRightToLine } from 'lucide-react'
-import { Badge } from '@/components/ui/badge'
-import PortableTextComponent from '@/components/ui/portable-text-component'
-import NavButton from '@/components/ui/nav-button'
+import type { Image as SanityImage } from 'sanity';
+import { client } from '~/lib/client.mts';
+import Image from 'next/image';
+import { urlForImage } from '~/lib/image';
+import { GithubIcon, Globe, ArrowRightToLine } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import PortableTextComponent from '@/components/ui/portable-text-component';
+import NavButton from '@/components/ui/nav-button';
 import { wait } from '@/lib/utils';
 interface Projects {
-    title?: string
-    image?: SanityImage
-    author?: string
-    slug?: string
-    alt?: string
-    description?: string
-    link?: string
-    github?: string
-    keywords?: string[]
+    title?: string;
+    image?: SanityImage;
+    author?: string;
+    slug?: string;
+    alt?: string;
+    description?: string;
+    link?: string;
+    github?: string;
+    keywords?: string[];
 }
 
 async function Project() {
     await wait(5000);
     const projects: Projects[] = await client.fetch(`*[_type == "projects"]{
 		"author": author->name, "slug": slug.current, "description": description, title, "image": mainImage, "alt": mainImage.alt, link, github, "keywords": keywords[]->title
-	  }`)
+	  }`);
     return (
         <div className="flex w-full flex-col items-center gap-10 text-white">
             {projects.map((project) => {
@@ -62,7 +62,7 @@ async function Project() {
                                 {project.keywords ? (
                                     <div className="flex gap-2">
                                         {project.keywords
-                                            .slice(0, 4)
+                                            .slice(0, 3)
                                             .map((keyword) => {
                                                 return (
                                                     <Badge key={keyword}>
@@ -79,7 +79,7 @@ async function Project() {
                                     key={project.description}
                                 />
                             </div>
-                            <div className="hidden flex-row flex-wrap items-start gap-2 whitespace-nowrap lg:flex">
+                            <div className="hidden flex-row flex-wrap items-start whitespace-nowrap lg:flex">
                                 <NavButton
                                     href={project.link ?? ''}
                                     name="Site"
@@ -88,13 +88,13 @@ async function Project() {
                                 </NavButton>
                                 <NavButton
                                     href={project.github ?? ''}
-                                    name="Github"
+                                    name="GH"
                                 >
                                     <GithubIcon className="h-5 w-5" />
                                 </NavButton>
                                 <NavButton
                                     href={`/projects/${project.slug}` ?? ''}
-                                    name="Learn More"
+                                    name="More"
                                 >
                                     <ArrowRightToLine className="h-5 w-5" />
                                 </NavButton>
@@ -150,5 +150,5 @@ export default async function Page() {
                 </Suspense>
             </div>
         </div>
-    )
+    );
 }

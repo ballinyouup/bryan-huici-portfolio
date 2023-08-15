@@ -45,6 +45,7 @@ export default async function Page({ params }: { params: { slug: string; }; }) {
     if (project.length === 0 || !project[0]) {
         return notFound();
     }
+    console.log(project[0].body);
     return (
         <div className="flex min-h-full w-full items-start justify-center p-4 pt-20">
             <div className="flex w-full max-w-5xl flex-col items-center justify-center">
@@ -63,7 +64,7 @@ export default async function Page({ params }: { params: { slug: string; }; }) {
                     {project[0].keywords ? (
                         <div className="flex gap-2 pb-12">
                             {project[0].keywords
-                                .slice(0, 4)
+                                .slice(0, 3)
                                 .map((keyword: string) => {
                                     return (
                                         <Badge key={keyword}>{keyword}</Badge>
@@ -75,6 +76,7 @@ export default async function Page({ params }: { params: { slug: string; }; }) {
                         value={project[0].body ?? {}}
                         onMissingComponent={false}
                     />
+
                 </div>
             </div>
         </div>
