@@ -61,7 +61,7 @@ export default async function HomeProjects() {
                                     {project.keywords ? (
                                         <div className="flex gap-2">
                                             {project.keywords
-                                                .slice(0, 4)
+                                                .slice(0, 3)
                                                 .map((keyword) => {
                                                     return (
                                                         <Badge key={keyword}>
