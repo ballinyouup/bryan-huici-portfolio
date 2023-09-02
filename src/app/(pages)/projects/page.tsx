@@ -1,31 +1,31 @@
-import ProjectsLoading from '@/components/ui/projects-loading';
-import { Suspense } from 'react';
-import type { Image as SanityImage } from 'sanity';
-import { client } from '~/lib/client.mts';
-import Image from 'next/image';
-import { urlForImage } from '~/lib/image';
-import { GithubIcon, Globe, ArrowRightToLine } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
-import PortableTextComponent from '@/components/ui/portable-text-component';
-import NavButton from '@/components/ui/nav-button';
-import { wait } from '@/lib/utils';
+import ProjectsLoading from '@/components/ui/projects-loading'
+import { Suspense } from 'react'
+import type { Image as SanityImage } from 'sanity'
+import { client } from '~/lib/client.mts'
+import Image from 'next/image'
+import { urlForImage } from '~/lib/image'
+import { GithubIcon, Globe, ArrowRightToLine } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
+import PortableTextComponent from '@/components/ui/portable-text-component'
+import NavButton from '@/components/ui/nav-button'
+import { wait } from '@/lib/utils'
 interface Projects {
-    title?: string;
-    image?: SanityImage;
-    author?: string;
-    slug?: string;
-    alt?: string;
-    description?: string;
-    link?: string;
-    github?: string;
-    keywords?: string[];
+    title?: string
+    image?: SanityImage
+    author?: string
+    slug?: string
+    alt?: string
+    description?: string
+    link?: string
+    github?: string
+    keywords?: string[]
 }
 
 async function Project() {
-    await wait(5000);
+    await wait(5000)
     const projects: Projects[] = await client.fetch(`*[_type == "projects"]{
 		"author": author->name, "slug": slug.current, "description": description, title, "image": mainImage, "alt": mainImage.alt, link, github, "keywords": keywords[]->title
-	  }`);
+	  }`)
     return (
         <div className="flex w-full flex-col items-center gap-10 text-white">
             {projects.map((project) => {
@@ -68,7 +68,7 @@ async function Project() {
                                                     <Badge key={keyword}>
                                                         {keyword}
                                                     </Badge>
-                                                );
+                                                )
                                             })}
                                     </div>
                                 ) : null}
@@ -130,16 +130,16 @@ async function Project() {
                             </div>
                         </div>
                     </div>
-                );
+                )
             })}
         </div>
-    );
+    )
 }
 
 export default async function Page() {
     return (
         <div className="pt-20">
-            <div className="flex h-full w-full flex-col items-center gap-8 p-8 lg:h-desktop lg:p-12">
+            <div className="flex h-full w-full flex-col items-center gap-8 p-8 lg:h-full lg:p-12">
                 <div className="flex w-full max-w-5xl">
                     <span className="text-[10vw] font-bold sm:text-6xl">
                         PROJECTS
@@ -150,5 +150,5 @@ export default async function Page() {
                 </Suspense>
             </div>
         </div>
-    );
+    )
 }
