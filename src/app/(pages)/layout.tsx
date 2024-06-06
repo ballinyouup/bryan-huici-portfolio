@@ -8,6 +8,7 @@ export const metadata = {
     description: 'Bryan Huici Portfolio',
     metadataBase: new URL(process.env.NODE_ENV === "development" ? "http://localhost:3000" : 'https://www.bryanhuici.com'),
 }
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,6 +21,7 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning>
             <body className={cn(inter.className, "")}>
                 <Navbar />
+                <Analytics />
                 {children}
                 <Footer />
             </body>
