@@ -2,7 +2,7 @@
 
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from './sheet'
 import Link from 'next/link'
-import { FolderGit2, Home, Menu, ScrollText, FileType2 } from 'lucide-react'
+import { FolderGit2, Home, Menu, ScrollText, FileType2, PenTool } from 'lucide-react'
 import { useState } from 'react'
 
 const MobileMenu = () => {
@@ -40,6 +40,14 @@ const MobileMenu = () => {
                 >
                     <FolderGit2 className="h-6 w-6" />
                     <span>Projects</span>
+                </Link>
+                <Link
+                    href="/technical-writing"
+                    className="flex items-center gap-4"
+                    onClick={handleOpen}
+                >
+                    <PenTool className="h-6 w-6" />
+                    <span>Tech Writing</span>
                 </Link>
                 <Link
                     href="/resume"

@@ -1,4 +1,4 @@
-import { client } from '../../../sanity/lib/client.mts'
+import { client } from '~/lib/client.mts'
 import type { Image as SanityImage } from 'sanity'
 import NavButton from '@/components/ui/nav-button'
 import { GithubIcon, Globe, ArrowRightToLine } from 'lucide-react'
@@ -100,8 +100,7 @@ export default async function HomeProjects() {
                                         </NavButton>
                                         <NavButton
                                             href={
-                                                `/projects/${project.slug}` ??
-                                                ''
+                                                `/projects/${project.slug}`
                                             }
                                             name="More"
                                         >
@@ -127,8 +126,7 @@ export default async function HomeProjects() {
                                         </NavButton>
                                         <NavButton
                                             href={
-                                                `/projects/${project.slug}` ??
-                                                ''
+                                                `/projects/${project.slug}`
                                             }
                                             name="Learn More"
                                             variant={'default'}

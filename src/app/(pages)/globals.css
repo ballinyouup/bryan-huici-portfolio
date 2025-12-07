@@ -1,13 +1,117 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-html, body{
+@theme {
+  --height-desktop: 60rem;
+  --height-phone: 44rem;
+  --min-height-phone: 44rem;
+  
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  
+  --color-background: hsl(218 10% 7%);
+  --color-foreground: hsl(0 0% 100%);
+  --color-muted: hsl(223 47% 11%);
+  --color-muted-foreground: hsl(215.4 16.3% 80%);
+  --color-popover: hsl(224 71% 4%);
+  --color-popover-foreground: hsl(215 20.2% 95%);
+  --color-card: hsl(222.2 47.4% 11.2%);
+  --color-card-foreground: hsl(0 0% 100%);
+  --color-border: hsl(216 34% 17%);
+  --color-input: hsl(216 34% 17%);
+  --color-primary: hsl(210 100% 14%);
+  --color-primary-foreground: hsl(222.2 100% 100%);
+  --color-secondary: hsl(222.2 47.4% 11.2%);
+  --color-secondary-foreground: hsl(210 40% 98%);
+  --color-accent: hsl(216 34% 17%);
+  --color-accent-foreground: hsl(210 40% 98%);
+  --color-destructive: hsl(0 63% 31%);
+  --color-destructive-foreground: hsl(210 40% 98%);
+  --color-ring: hsl(216 34% 17%);
+}
+
+:root {
+  --background: 218 10% 7%;
+  --foreground: 0 0% 100%;
+
+  --muted: 223 47% 11%;
+  --muted-foreground: 215.4 16.3% 80%;
+
+  --popover: 224 71% 4%;
+  --popover-foreground: 215 20.2% 95%;
+
+  --card: 222.2 47.4% 11.2%;
+  --card-foreground: 0 0% 100%;
+  
+  --border: 216 34% 17%;
+  --input: 216 34% 17%;
+
+  --primary: 210 100% 14%;
+  --primary-foreground: 222.2 100% 100%;
+
+  --secondary: 222.2 47.4% 11.2%;
+  --secondary-foreground: 210 40% 98%;
+
+  --accent: 216 34% 17%;
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 63% 31%;
+  --destructive-foreground: 210 40% 98%;
+
+  --ring: 216 34% 17%;
+
+  --radius: 0.5rem;
+}
+
+html, body {
   height: 100%;
   width: 100%;
   min-height: -webkit-fill-available;
   scroll-snap-type: y proximity;
   scroll-behavior: smooth;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Heading defaults - can be overridden by utility classes */
+h1:not([class*="text-"]) {
+  font-size: 8rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+h2:not([class*="text-"]) {
+  font-size: 4.5rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+h3:not([class*="text-"]) {
+  font-size: 3.75rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+h4:not([class*="text-"]) {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+}
+
+h5:not([class*="text-"]) {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+
+h6:not([class*="text-"]) {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
 }
 
 .overlay {    
@@ -40,67 +144,4 @@ html, body{
   z-index: 20;
   left: 0px;
   top: 0px;
-}
-
-@layer base {
-  :root {
-    --background: 218 10% 7%;
-    --foreground: 0 0% 100%;
- 
-    --muted: 223 47% 11%;
-    --muted-foreground: 215.4 16.3% 80%;
- 
-    --popover: 224 71% 4%;
-    --popover-foreground: 215 20.2% 95%;
- 
-    --card: 222.2 47.4% 11.2%;
-    --card-foreground: 0 0% 100%;
-    
-    --border: 216 34% 17%;
-    --input: 216 34% 17%;
- 
-    --primary: 210 100% 14%;
-    --primary-foreground: 222.2 100% 100%;
- 
-    --secondary: 222.2 47.4% 11.2%;
-    --secondary-foreground: 210 40% 98%;
- 
-    --accent: 216 34% 17%;
-    --accent-foreground: 210 40% 98%;
- 
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
- 
-    --ring: 216 34% 17%;
- 
-    --radius: 0.5rem;
-  }
-}
- 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
-  h1 {
-    @apply text-9xl font-bold
-  }
-  h2 {
-    @apply text-7xl font-bold
-  }
-  h3 {
-    @apply text-6xl font-bold
-  }
-  h4 {
-    @apply text-4xl font-bold
-  }
-  h5 {
-    @apply text-2xl font-bold
-  }
-  h6 {
-    @apply text-xl font-bold
-  }
 }

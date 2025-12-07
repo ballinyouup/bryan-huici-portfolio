@@ -1,5 +1,5 @@
 'use client'
-import { Dribbble, FolderGit2, Home, ScrollText, FileType2 } from 'lucide-react'
+import { Dribbble, FolderGit2, Home, ScrollText, FileType2, PenTool } from 'lucide-react'
 import NavButton from './nav-button'
 import MobileMenu from './mobile-menu'
 
@@ -18,6 +18,9 @@ export default function Navbar() {
                 </NavButton>
                 <NavButton href="/projects" name="Projects">
                     <FolderGit2 className="-mt-0.5 h-5 w-5" />
+                </NavButton>
+                <NavButton href="/technical-writing" name="Tech Writing">
+                    <PenTool className="-mt-0.5 h-5 w-5" />
                 </NavButton>
                 <NavButton href="/resume" name="Resumé">
                     <ScrollText className="-mt-0.5 h-5 w-5" />

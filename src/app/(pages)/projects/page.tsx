@@ -93,7 +93,7 @@ async function Project() {
                                     <GithubIcon className="h-5 w-5" />
                                 </NavButton>
                                 <NavButton
-                                    href={`/projects/${project.slug}` ?? ''}
+                                    href={`/projects/${project.slug}`}
                                     name="More"
                                 >
                                     <ArrowRightToLine className="h-5 w-5" />
@@ -119,7 +119,7 @@ async function Project() {
                                     <GithubIcon className="h-5 w-5" />
                                 </NavButton>
                                 <NavButton
-                                    href={`/projects/${project.slug}` ?? ''}
+                                    href={`/projects/${project.slug}`}
                                     name="Learn More"
                                     variant={'default'}
                                     className="w-full"
