@@ -1,4 +1,4 @@
-import { ImageResponse } from 'next/server'
+import { ImageResponse } from 'next/og'
 import { client } from '~/lib/client.mts'
 // Route segment config
 // export const runtime = 'edge'
