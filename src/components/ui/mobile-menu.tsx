@@ -42,14 +42,6 @@ const MobileMenu = () => {
                     <span>Projects</span>
                 </Link>
                 <Link
-                    href="/technical-writing"
-                    className="flex items-center gap-4"
-                    onClick={handleOpen}
-                >
-                    <PenTool className="h-6 w-6" />
-                    <span>Tech Writing</span>
-                </Link>
-                <Link
                     href="/resume"
                     className="flex items-center gap-4"
                     onClick={handleOpen}
